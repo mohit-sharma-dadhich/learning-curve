@@ -19,14 +19,15 @@
 - Do **not** wrap an `<a>` tag inside a `<button>` — it’s invalid HTML
 - For vertical centering with Flexbox, always set the parent’s height (e.g., `100vh`)
 
-## Day 2 — Responsive Layout Practice
+## Day 2 : Responsive Layout Practice
 
+## ✅ What I Learned
 - Learned how to create a responsive webpage layout using flexbox and CSS Grid  
 - Built a multi-column layout with a sidebar and main content area  
 - Used media queries to adjust project grid columns for wide and narrow screens  
 - Practiced styling navigation with hover effects  
 - Improved understanding of layout structuring with semantic HTML tags  
-- Tips learned: 
+## 💡 Tips
   - Use flex ratios (`flex: 0.7`, `flex: 0.3`) to control column widths  
   - Use `grid-template-columns` to control number of grid columns  
   - Hover effects can be applied on nav or individual links depending on UX needs  
