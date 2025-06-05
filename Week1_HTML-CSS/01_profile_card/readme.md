@@ -9,8 +9,6 @@ The profile card includes:
 - A short description paragraph
 - Links to my GitHub and LinkedIn profiles styled as buttons
 
-![Profile Card Screenshot](screenshots/profile_card.png)
-
 ## What I Learned
 - Structuring HTML with semantic tags
 - Linking external CSS and separating style from markup
@@ -30,6 +28,8 @@ The profile card includes:
 
 ## How to Run
 Open `index.html` in any modern web browser to view the profile card.
+
+![Layout Practice Screenshot](../../screenshots/profile_card.png)
 
 ## Notes
 - The image file is named `profile.jpg` and stored in the same folder for easy relative linking.
