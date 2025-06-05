@@ -1,0 +1,10 @@
+
+- git init           → Initialize local repo
+- git status         → Check current state of repo
+- git remote add origin <repo-url>   → Connect local repo to GitHub
+-  git branch -M main   → Rename current branch to 'main'
+- git add .          → Stage all changes
+- git commit -m ""   → Commit changes with message
+- git push origin main → Push to remote repo
+- git remote -v   → View connected remote URLs
+- git pull origin main  → Pull latest changes from GitHub
