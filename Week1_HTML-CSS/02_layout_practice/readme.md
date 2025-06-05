@@ -11,8 +11,6 @@ The layout includes a header, navigation bar, main content area with a project g
 - Basic styling with improved colors and spacing  
 - Navigation menu with hover effect on the entire nav bar  
 
-![Layout Screenshot](screenshots/layout_practice.png)
-
 ## File Structure
 
 - `index.html` — Main HTML file with semantic layout elements  
@@ -24,3 +22,4 @@ The layout includes a header, navigation bar, main content area with a project g
 Simply open `index.html` in any modern browser.
 
 
+![Layout Practice Screenshot](../../screenshots/layout_practice.png)
