@@ -9,6 +9,8 @@ The profile card includes:
 - A short description paragraph
 - Links to my GitHub and LinkedIn profiles styled as buttons
 
+![Profile Card Screenshot](screenshots/profile_card.png)
+
 ## What I Learned
 - Structuring HTML with semantic tags
 - Linking external CSS and separating style from markup
