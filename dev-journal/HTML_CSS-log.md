@@ -1,6 +1,6 @@
-# Week 1 Log: HTML & CSS
+#  HTML & CSS:
 
-### Day-01 : Profile_card
+### Profile_card:
 
 ## ✅ What I Learned
 
@@ -19,7 +19,7 @@
 - Do **not** wrap an `<a>` tag inside a `<button>` — it’s invalid HTML
 - For vertical centering with Flexbox, always set the parent’s height (e.g., `100vh`)
 
-## Day 2 : Responsive Layout Practice
+## Responsive Layout Practice:
 
 ## ✅ What I Learned
 - Learned how to create a responsive webpage layout using flexbox and CSS Grid  

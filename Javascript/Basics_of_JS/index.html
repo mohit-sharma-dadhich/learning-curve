@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rock-Paper-Scissors</title>
+  </head>
+  <body>
+    <h1>Rock-Paper-Scissors</h1>
+    <button
+      onclick="
+       userChoice='rock';
+       
+        comptuerChoice=Math.random();
+        if (comptuerChoice>=0 && comptuerChoice<1/3){
+            comptuerChoice='rock';
+        }else if(comptuerChoice>=1/3 && comptuerChoice<2/3 ){
+            comptuerChoice='paper';
+        }
+        else{
+            comptuerChoice='scissors';
+        }
+       
+          if(userChoice=='rock' && comptuerChoice=='scissors'){
+            result='Player wins';
+            
+        }else if(userChoice=='rock' && comptuerChoice=='paper'){
+           result='Computer Wins';
+        }
+        else{
+        result='Draw';}
+            alert(`Player:Rock\nComputer:${comptuerChoice}\nResult:${result}`);
+    "
+    >
+      Rock
+    </button>
+
+    <button onclick="
+     userChoice='paper';
+       
+        comptuerChoice=Math.random();
+        if (comptuerChoice>=0 && comptuerChoice<1/3){
+            comptuerChoice='rock';
+        }else if(comptuerChoice>=1/3 && comptuerChoice<2/3 ){
+            comptuerChoice='paper';
+        }
+        else{
+            comptuerChoice='scissors';
+        }
+       
+          if(userChoice=='paper' && comptuerChoice=='scissors'){
+            result='Computer wins';
+            
+        }else if(userChoice=='paper' && comptuerChoice=='paper'){
+           result='Draw';
+        }
+        else{
+        result='Player Wins';}
+            alert(`Player:Paper\nComputer:${comptuerChoice}\nResult:${result}`);
+    "
+    
+    >Paper</button>
+
+    <button onclick="
+     userChoice='scissors';
+       
+        comptuerChoice=Math.random();
+        if (comptuerChoice>=0 && comptuerChoice<1/3){
+            comptuerChoice='rock';
+        }else if(comptuerChoice>=1/3 && comptuerChoice<2/3 ){
+            comptuerChoice='paper';
+        }
+        else{
+            comptuerChoice='scissors';
+        }
+       
+          if(userChoice=='scissors' && comptuerChoice=='scissors'){
+            result='Draw';
+            
+        }else if(userChoice=='scissors' && comptuerChoice==`paper`){
+           result='Player Wins';
+        }
+        else{
+        result='Computer Wins';}
+            alert(`Player:scissors\nComputer:${comptuerChoice}\nResult:${result}`);
+    "
+    >Scissors</button>
+    <script>
+      let userChoice;
+      let comptuerChoice;
+      let result;
+    </script>
+  </body>
+</html>
