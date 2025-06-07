@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+<!-- Using inline JS and without using functions -->
+<!-- <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -11,25 +12,25 @@
       onclick="
        userChoice='rock';
        
-        comptuerChoice=Math.random();
-        if (comptuerChoice>=0 && comptuerChoice<1/3){
-            comptuerChoice='rock';
-        }else if(comptuerChoice>=1/3 && comptuerChoice<2/3 ){
-            comptuerChoice='paper';
+        computerChoice=Math.random();
+        if (computerChoice>=0 && computerChoice<1/3){
+            computerChoice='rock';
+        }else if(computerChoice>=1/3 && computerChoice<2/3 ){
+            computerChoice='paper';
         }
         else{
-            comptuerChoice='scissors';
+            computerChoice='scissors';
         }
        
-          if(userChoice=='rock' && comptuerChoice=='scissors'){
+          if(userChoice=='rock' && computerChoice=='scissors'){
             result='Player wins';
             
-        }else if(userChoice=='rock' && comptuerChoice=='paper'){
+        }else if(userChoice=='rock' && computerChoice=='paper'){
            result='Computer Wins';
         }
         else{
         result='Draw';}
-            alert(`Player:Rock\nComputer:${comptuerChoice}\nResult:${result}`);
+            alert(`Player:Rock\nComputer:${computerChoice}\nResult:${result}`);
     "
     >
       Rock
@@ -38,25 +39,25 @@
     <button onclick="
      userChoice='paper';
        
-        comptuerChoice=Math.random();
-        if (comptuerChoice>=0 && comptuerChoice<1/3){
-            comptuerChoice='rock';
-        }else if(comptuerChoice>=1/3 && comptuerChoice<2/3 ){
-            comptuerChoice='paper';
+        computerChoice=Math.random();
+        if (computerChoice>=0 && computerChoice<1/3){
+            computerChoice='rock';
+        }else if(computerChoice>=1/3 && computerChoice<2/3 ){
+            computerChoice='paper';
         }
         else{
-            comptuerChoice='scissors';
+            computerChoice='scissors';
         }
        
-          if(userChoice=='paper' && comptuerChoice=='scissors'){
+          if(userChoice=='paper' && computerChoice=='scissors'){
             result='Computer wins';
             
-        }else if(userChoice=='paper' && comptuerChoice=='paper'){
+        }else if(userChoice=='paper' && computerChoice=='paper'){
            result='Draw';
         }
         else{
         result='Player Wins';}
-            alert(`Player:Paper\nComputer:${comptuerChoice}\nResult:${result}`);
+            alert(`Player:Paper\nComputer:${computerChoice}\nResult:${result}`);
     "
     
     >Paper</button>
@@ -64,31 +65,120 @@
     <button onclick="
      userChoice='scissors';
        
-        comptuerChoice=Math.random();
-        if (comptuerChoice>=0 && comptuerChoice<1/3){
-            comptuerChoice='rock';
-        }else if(comptuerChoice>=1/3 && comptuerChoice<2/3 ){
-            comptuerChoice='paper';
+        computerChoice=Math.random();
+        if (computerChoice>=0 && computerChoice<1/3){
+            computerChoice='rock';
+        }else if(computerChoice>=1/3 && computerChoice<2/3 ){
+            computerChoice='paper';
         }
         else{
-            comptuerChoice='scissors';
+            computerChoice='scissors';
         }
        
-          if(userChoice=='scissors' && comptuerChoice=='scissors'){
+          if(userChoice=='scissors' && computerChoice=='scissors'){
             result='Draw';
             
-        }else if(userChoice=='scissors' && comptuerChoice==`paper`){
+        }else if(userChoice=='scissors' && computerChoice==`paper`){
            result='Player Wins';
         }
         else{
         result='Computer Wins';}
-            alert(`Player:scissors\nComputer:${comptuerChoice}\nResult:${result}`);
+            alert(`Player:scissors\nComputer:${computerChoice}\nResult:${result}`);
     "
     >Scissors</button>
     <script>
       let userChoice;
-      let comptuerChoice;
+      let computerChoice;
       let result;
     </script>
   </body>
+</html> -->
+
+
+<!-- Using Functions -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rock-Paper-Scissors</title>
+</head>
+<body>
+  <button
+  onclick="
+  userChoice='rock'
+  getComputerMove();
+  getResult();
+  showResult();
+  "
+  >Rock</button>
+
+  <button
+   onclick="
+  userChoice='paper'
+  getComputerMove();
+  getResult();
+  showResult();
+  ">Paper</button>
+
+  <button
+   onclick="
+  userChoice='scissors'
+  getComputerMove();
+  getResult();
+  showResult();
+  "
+  >Scissors</button>
+</body>
+<script>
+  let computerChoice;
+  let userChoice;
+  let result;
+  function getComputerMove(){
+     computerChoice=Math.random();
+        if (computerChoice>=0 && computerChoice<1/3){
+            computerChoice='rock';
+        }else if(computerChoice>=1/3 && computerChoice<2/3 ){
+            computerChoice='paper';
+        }
+        else{
+            computerChoice='scissors';
+        }
+  }
+  function getResult(){
+    if(userChoice=='rock'){
+      if(computerChoice=='scissors'){
+            result='Player wins';
+            }else if(computerChoice=='paper'){
+           result='Computer Wins';
+        }
+        else{
+        result='Draw';}
+    }
+    else if(userChoice=='paper'){
+      if(computerChoice=='scissors'){
+            result='Computer wins';
+            
+        }else if(computerChoice=='paper'){
+           result='Draw';
+        }
+        else{
+        result='Player Wins';}
+    }
+    else{
+       if(computerChoice=='scissors'){
+            result='Draw';
+            
+        }else if(computerChoice=='paper'){
+           result='Player Wins';
+        }
+        else{
+        result='Computer Wins';}
+    }
+  }
+function showResult(){
+   alert(`Player:${userChoice}\nComputer:${computerChoice}\nResult:${result}`);
+}
+
+</script>
 </html>

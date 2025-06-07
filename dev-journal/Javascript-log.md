@@ -42,3 +42,35 @@ Used to format messages with variables inside them.
 For example:
 ```js
 alert(`Player: ${userChoice}\nComputer: ${computerChoice}\nResult: ${result}`);
+
+### ✅ function (Core Concept)  
+Functions help organize code into reusable blocks.  
+Instead of repeating logic, we can define it once and call it multiple times.
+
+In this project:  
+- getComputerMove() — decides the computer's move.  
+- getResult() — compares user and computer choices to decide the winner.  
+- showResult() — displays the result using alert().
+
+Example:  
+```js
+function getResult() {
+  if (userChoice === 'rock' && computerChoice === 'scissors') {
+    result = 'Player Wins';
+  }
+}
+### ✅ Falsy Values in JavaScript  
+Some values are considered **falsy**, meaning they behave like `false` in condition checks:
+
+- `false`  
+- `0`  
+- `''` (empty string)  
+- `null`  
+- `undefined`  
+- `NaN`
+
+Example:  
+```js
+if (0) {
+  // This block will not run because 0 is falsy
+}
