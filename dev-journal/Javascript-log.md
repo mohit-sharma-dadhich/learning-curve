@@ -42,6 +42,8 @@ Used to format messages with variables inside them.
 For example:
 ```js
 alert(`Player: ${userChoice}\nComputer: ${computerChoice}\nResult: ${result}`);
+```
+
 
 ### ✅ function (Core Concept)  
 Functions help organize code into reusable blocks.  
@@ -59,6 +61,7 @@ function getResult() {
     result = 'Player Wins';
   }
 }
+`````
 ### ✅ Falsy Values in JavaScript  
 Some values are considered **falsy**, meaning they behave like `false` in condition checks:
 
@@ -74,3 +77,4 @@ Example:
 if (0) {
   // This block will not run because 0 is falsy
 }
+```
