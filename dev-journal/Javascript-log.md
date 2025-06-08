@@ -128,3 +128,46 @@ const calculator = {
 console.log(calculator.add(5, 3));      // Output: 8
 console.log(calculator.subtract(5, 3)); // Output: 2
 ```
+### ✅ JSON (JavaScript Object Notation)
+
+- JSON is a lightweight data-interchange format, easy for humans to read and write, and easy for machines to parse and generate.
+- It represents data as key-value pairs, arrays, and nested objects.
+- Commonly used to send and receive data between a client and a server in web applications.
+
+**Key Methods:**
+- `JSON.stringify(object)` — Converts a JavaScript object to a JSON string.
+- `JSON.parse(string)` — Converts a JSON string back to a JavaScript object.
+
+**Example:**
+```js
+const user = { name: "Mohit", age: 20 };
+const jsonString = JSON.stringify(user);
+// '{"name":"Mohit","age":20}'
+const userObj = JSON.parse(jsonString);
+// { name: "Mohit", age: 20 }
+
+### ✅ localStorage
+
+- `localStorage` is a browser API for storing key-value pairs persistently (data stays after page reloads or browser restarts).
+- Used to save user preferences, game scores, tokens, etc.
+- Stores data as strings only.
+
+**Common methods:**
+- `localStorage.setItem(key, value)` — Save a value by key.
+- `localStorage.getItem(key)` — Retrieve value by key.
+- `localStorage.removeItem(key)` — Remove item by key.
+- `localStorage.clear()` — Clear all stored data.
+
+**Example:**
+```js
+// Save data
+localStorage.setItem("username", "Mohit");
+
+// Get data
+const name = localStorage.getItem("username"); // "Mohit"
+
+// Remove data
+localStorage.removeItem("username");
+
+// Clear all data
+localStorage.clear();
