@@ -78,3 +78,53 @@ if (0) {
   // This block will not run because 0 is falsy
 }
 ```
+### ✅ Returning Multiple Values in JavaScript
+JavaScript doesn’t support returning multiple values directly like Python tuples,  
+but we can return multiple values using an object or an array.
+
+Example (object way — more readable):
+```js
+function count(result) {
+  return {
+    win: 2,
+    lose: 1,
+    draw: 1
+  };
+}
+```
+### ✅ Object Inside an Object (Nested Objects)
+
+You can have objects as properties inside another object.
+
+Example:
+```js
+const player = {
+  name: "Alice",
+  score: 0,
+  stats: {
+    wins: 5,
+    losses: 2,
+    draws: 1
+  }
+};
+```
+### ✅ Function Inside Object (Method)
+
+A function stored inside an object is called a **method**.  
+It allows the object to perform actions or behaviors.
+
+Example:
+
+```js
+const calculator = {
+  add: function(a, b) {
+    return a + b;
+  },
+  subtract(a, b) {
+    return a - b;  // Shorter method syntax
+  }
+};
+
+console.log(calculator.add(5, 3));      // Output: 8
+console.log(calculator.subtract(5, 3)); // Output: 2
+```
