@@ -145,7 +145,7 @@ const jsonString = JSON.stringify(user);
 // '{"name":"Mohit","age":20}'
 const userObj = JSON.parse(jsonString);
 // { name: "Mohit", age: 20 }
-
+```
 ### ✅ localStorage
 
 - `localStorage` is a browser API for storing key-value pairs persistently (data stays after page reloads or browser restarts).
