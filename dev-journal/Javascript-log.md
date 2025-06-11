@@ -1,9 +1,4 @@
-# Rock-Paper-Scissors:
-
-This is a basic Rock-Paper-Scissors game created using only HTML and  simple JavaScript.  
-The player clicks a button (Rock, Paper, or Scissors), the computer makes a random choice, and the result is shown using an alert popup.
-
----
+# Basics_of_JS:
 
 ## 🧠 What I Learned
 
