@@ -338,3 +338,256 @@ const user = {
  - JavaScript treats it as a regular function method, just written in a shorter form.
  - Useful when writing methods inside objects like event handlers, class-like structures, etc.
 
+# 🧠 JavaScript DOM:
+## Browser Environment:
+### ✅ window Object:
+The **`window`** object represents the browser window and is the **global object** for client-side JavaScript. All global functions like `alert()` or `setTimeout()` are part of `window`.
+
+```js
+console.log(window.innerWidth);      // Viewport width in pixels
+console.log(window.location.href);   // Current page URL
+window.alert("Hello!");              // Displays an alert box
+```
+### ✅ `document` Object
+
+The **`document`** object is a property of the `window` object and represents the **entire HTML document**. It is the main entry point to access and manipulate the DOM (Document Object Model).
+
+You can use `document` to:
+
+- Access elements in the page
+- Modify content or structure
+- Add event listeners
+- Read meta-information about the page
+
+####  Examples:
+
+```js
+console.log(document);              // Logs the entire document object
+console.log(document.title);        // Gets the page title
+console.log(document.URL);          // Gets the current URL of the page
+console.log(document.body);         // Logs the <body> element
+```
+##  2. Element Selection in the DOM
+
+To interact with elements on a webpage, you must first **select** them using DOM selection methods.
+
+### ✅ `document.getElementById(id)`
+
+Selects a **single element** by its ID.
+
+```js
+const heading = document.getElementById("main-heading");
+console.log(heading);
+```
+### ✅ `document.querySelector(selector)`
+ - Selects the first matching element using a CSS-style selector.
+ ```js
+ document.querySelector("#header");      // ID selector
+document.querySelector(".title");       // Class selector
+document.querySelector("div");          // Tag selector
+document.querySelector("input[type='text']"); // Attribute selector
+```
+### ✅ `document.getElementsByClassName(className)`
+- Returns an HTMLCollection of all elements that have the specified class name.
+```js
+const items = document.getElementsByClassName("list-item");
+console.log(items); // HTMLCollection (not an array)
+```
+### ✅ `document.getElementsByTagName(tagName)`
+- Returns an HTMLCollection of all elements with the given tag name.
+```js
+const paragraphs = document.getElementsByTagName("p");
+```
+### ✅ `document.querySelectorAll(selector)`
+- Returns a NodeList of all elements matching the given CSS selector.
+```js
+const buttons = document.querySelectorAll(".btn");
+buttons.forEach(btn => {
+  console.log(btn.textContent);
+});
+```
+- Note: `NodeList` supports `forEach()`, unlike `HTMLCollection`.
+
+**Note:**
+-  `querySelectorAll()` returns a `NodeList`, which supports `.forEach()`, unlike `HTMLCollection` returned by methods like `getElementsByClassName()` or `getElementsByTagName()`.
+
+## 🖋️ 3. DOM Content & Form Input
+
+This section covers how to read and update the content of elements or input fields in the DOM.
+
+---
+
+### ✅ `innerText`
+
+Returns the **visible text content** of an element (ignores hidden content). When setting it, only plain text is added.
+
+```js
+const element = document.querySelector("#demo");
+console.log(element.innerText);  // Reads visible text
+
+element.innerText = "Updated Text";  // Sets new text
+```
+### ✅ `textContent`
+- Returns all the text inside an element, including hidden text. It’s usually faster than innerText.
+```js
+const element = document.querySelector("#demo");
+console.log(element.textContent);  // May include hidden text
+
+element.textContent = "Hidden-safe text";
+```
+### ✅ `innerHTML`
+- Gets or sets the HTML content inside an element. Can include HTML tags and formatting.
+```js
+const div = document.querySelector("#content");
+
+console.log(div.innerHTML);  // Reads current HTML
+
+div.innerHTML = "<strong>Bold Text</strong>";  // Inserts formatted content
+```
+### ✅ `value`
+- Used with form elements (`<input>`, `<textarea>`, `<select>`) to get or set the user-entered value.
+```js
+const input = document.querySelector("#username");
+
+console.log(input.value);       // Gets value from input field
+
+input.value = "NewUser123";     // Sets value programmatically
+```
+**`Number()` Function**
+- Converts a string (e.g., from an input) into a number. Useful when working with numeric inputs.
+```js
+const input = document.querySelector("#age");
+const age = Number(input.value);   // Converts string to number
+
+console.log(typeof age);  // "number"
+```
+## 🧷 4. Event Handling Methods
+
+JavaScript allows you to respond to user actions (like clicks, key presses, etc.) using **event handlers**.
+
+---
+
+### ✅ HTML Attribute Method (Not Recommended)
+
+You can attach an event handler directly in HTML using the `onclick`, `onchange`, etc. attributes.
+
+```html
+<button onclick="alert('Clicked!')">Click Me</button>
+```
+
+### ✅ Property-Based Method
+
+You can assign a JavaScript function directly to an element’s event property like `onclick`.
+
+```js
+const btn = document.querySelector("#myBtn");
+
+btn.onclick = function () {
+  console.log("Button clicked using property-based method");
+};
+```
+- Only one function can be assigned to a given event using this method.
+Assigning a new one overwrites the previous handler.
+
+### ✅ `addEventListener()` Method (Recommended)
+
+This is the **most preferred way** to handle events. It allows you to attach **multiple event handlers** to the same element without overwriting existing ones.
+
+```js
+const btn = document.querySelector("#myBtn");
+
+btn.addEventListener("click", () => {
+  console.log("Clicked with addEventListener");
+});
+
+btn.addEventListener("click", () => {
+  console.log("Another listener also runs!");
+});
+```
+**✅ Advantages:**
+
+- Allows multiple functions for the same event
+
+- Keeps JavaScript separate from HTML
+
+- Supports removing listeners with removeEventListener()
+
+```js
+function handleClick() {
+  console.log("Clicked once");
+}
+
+btn.addEventListener("click", handleClick);
+
+// To remove later
+btn.removeEventListener("click", handleClick);
+```
+### 🧾 Summary: Event Handling Methods
+
+| Method                    | Syntax Example                                  | Notes                                                   |
+|---------------------------|--------------------------------------------------|----------------------------------------------------------|
+| **HTML Attribute**        | `<button onclick="...">`                         | Not recommended; mixes HTML with JS                     |
+| **Property-Based**        | `element.onclick = function () {}`              | Only one handler at a time                              |
+| **addEventListener()**    | `element.addEventListener("click", callback)`   | Preferred method; allows multiple handlers              |
+
+✅ **Recommendation:**
+ Always use `addEventListener()` for clean, modular, and flexible event handling.
+
+## 🧱 5. Common Event Types
+
+Here are frequently used DOM event types in JavaScript:
+
+- `click` – When an element is clicked
+- `keydown` – When a key is pressed down
+- `keyup` – When a key is released
+- `mouseenter` – When the mouse enters an element
+- `mouseleave` – When the mouse leaves an element
+- `scroll` – When the user scrolls the document or an element
+- `change` – When a form input value changes
+- `submit` – When a form is submitted
+- `input` – When a user types in an input/textarea field
+
+## 🎯 6. Event Object
+
+When an event occurs, the browser passes a special **event object** to your event handler. This object contains all the details about the triggered event.
+
+---
+
+### 🔑 Useful Properties & Methods of the Event Object
+
+- `event.type` – Returns the type of event (`"click"`, `"keydown"`, etc.)
+- `event.key` – Returns the key pressed (for keyboard events)
+- `event.target` – Returns the element that triggered the event
+- `event.currentTarget` – Returns the element the listener is attached to
+- `event.preventDefault()` – Prevents the browser's default behavior
+- `event.stopPropagation()` – Prevents event from bubbling to parent elements
+
+### ✅ Event Object in Action (All-in-One Example)
+
+```js
+document.addEventListener("keydown", function (event) {
+  console.log("Event Type:", event.type); // e.g., "keydown"
+
+  console.log("Key Pressed:", event.key); // e.g., "a", "Enter", "Escape"
+
+  console.log("Target Element:", event.target); // The element where event occurred
+
+  console.log("Current Target:", event.currentTarget); // Element the listener is attached to
+
+  event.preventDefault(); // Prevents default action (useful in forms, links, etc.)
+
+  event.stopPropagation(); // Prevents event from bubbling up (use with caution)
+});
+```
+**🧠 Note:**
+- This is a keydown listener on the entire document. Try typing in an input or pressing any key to see how event object properties behave.
+
+### 🧠 Quick Recap: `preventDefault()` vs `stopPropagation()`
+
+- `event.preventDefault()` — Prevents the browser's default behavior (like navigating a link, submitting a form).
+  - ✅ Example: Stops a link from navigating to another page.
+  
+- `event.stopPropagation()` — Stops the event from bubbling up to parent elements.
+  - ✅ Example: Clicking a child element won’t trigger the parent’s event listener.
+
+📌 Use both when you want **full control** over what happens during an event — and who gets to know about it.
