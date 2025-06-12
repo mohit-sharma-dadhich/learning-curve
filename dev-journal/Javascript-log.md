@@ -591,3 +591,18 @@ document.addEventListener("keydown", function (event) {
   - ✅ Example: Clicking a child element won’t trigger the parent’s event listener.
 
 📌 Use both when you want **full control** over what happens during an event — and who gets to know about it.
+
+
+## 🧠 classList
+### ✅ element.classList
+- The `classList` property provides a convenient way to access and modify the **CSS classes** of an HTML element. It returns a **live DOMTokenList**.
+
+**🔧 Common `classList` Methods**
+
+| Method                           | Description                                      |
+|----------------------------------|--------------------------------------------------|
+| `add(class)`                     | Adds one or more class names                     |
+| `remove(class)`                  | Removes one or more class names                  |
+| `toggle(class)`                  | Toggles the existence of a class                 |
+| `contains(class)`                | Returns `true` if the element has the class      |
+| `replace(oldClass, newClass)`   | Replaces an existing class with a new one        |
