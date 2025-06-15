@@ -606,3 +606,622 @@ document.addEventListener("keydown", function (event) {
 | `toggle(class)`                  | Toggles the existence of a class                 |
 | `contains(class)`                | Returns `true` if the element has the class      |
 | `replace(oldClass, newClass)`   | Replaces an existing class with a new one        |
+
+---
+
+# 🔁 JavaScript Loops
+
+Loops allow you to **run the same block of code repeatedly**, as long as a specified condition is true or over a set of items.
+
+
+
+## 🔹 1. `while` Loop
+
+Runs **as long as the condition is true**. Condition is checked **before each iteration**.
+
+```js
+let i = 0;
+
+while (i < 5) {
+  console.log(i);  // 0 1 2 3 4
+  i++;
+}
+```
+
+
+
+## 🔹 2. `do...while` Loop
+
+Runs the block **at least once**, then continues **while the condition is true**.
+
+```js
+let j = 0;
+
+do {
+  console.log(j);  // 0 1 2 3 4
+  j++;
+} while (j < 5);
+```
+
+
+
+## 🔹 3. `for` Loop
+
+The most common loop with 3 parts: **initialization**, **condition**, and **increment**.
+
+```js
+for (let k = 0; k < 5; k++) {
+  console.log(k);  // 0 1 2 3 4
+}
+```
+
+
+
+## 🔹 4. `for...of` Loop
+
+Used to **iterate over values** of an iterable (like arrays, strings, sets, etc.).
+
+```js
+const fruits = ["apple", "banana", "cherry"];
+
+for (const fruit of fruits) {
+  console.log(fruit);  // apple, banana, cherry
+}
+```
+
+
+
+## 🔹 5. `for...in` Loop
+
+Used to **iterate over keys (property names)** in an object.
+
+```js
+const user = {
+  name: "Alex",
+  age: 25,
+  isAdmin: true
+};
+
+for (const key in user) {
+  console.log(`${key}: ${user[key]}`);
+  // name: Alex
+  // age: 25
+  // isAdmin: true
+}
+```
+
+
+
+## 🔹 6. Loop Control: `break` and `continue`
+
+### ✅ `break` – exits the loop completely
+```js
+for (let i = 0; i < 10; i++) {
+  if (i === 5) break;
+  console.log(i);  // 0 1 2 3 4
+}
+```
+
+### ✅ `continue` – skips current iteration and moves to next
+```js
+for (let i = 0; i < 5; i++) {
+  if (i === 2) continue;
+  console.log(i);  // 0 1 3 4
+}
+```
+
+
+
+📌 **Tips**:
+- Use `for` when you know how many times to loop.
+- Use `while` or `do...while` when the number of iterations is unknown.
+- Use `for...of` for arrays or iterable values.
+- Use `for...in` for object properties.
+
+
+---
+# 🧱 Array Properties and Common Methods
+
+### ✅ `.length`
+
+- Returns the number of elements in the array.
+
+```js
+const fruits = ['apple', 'banana', 'cherry'];
+console.log(fruits.length);  // 3
+```
+
+
+
+### ✅ `.push(value)`
+
+- Adds a new element **to the end** of the array.
+
+```js
+fruits.push('orange');
+console.log(fruits);  // ['apple', 'banana', 'cherry', 'orange']
+```
+
+
+
+### ✅ `.splice(start, deleteCount, ...items)`
+
+- Can **remove, replace, or insert** elements at a specific index.
+
+```js
+fruits.splice(1, 1, 'grape');  
+// From index 1, remove 1 element ('banana'), insert 'grape'
+console.log(fruits);  // ['apple', 'grape', 'cherry', 'orange']
+```
+
+
+
+### ✅ `.slice(start, end)`
+
+- Returns a **shallow copy** of a portion of the array (does not modify original).
+- `end` index is **not included**.
+
+```js
+const sliced = fruits.slice(0, 2);  // Copy from index 0 to 1
+console.log(sliced);  // ['apple', 'grape']
+```
+
+### ✅ `.forEach()` — Iterating Over Arrays
+
+- Executes a **callback function** for each element in the array.
+- Does **not return** a new array (used for **side-effects** like logging or DOM manipulation).
+- Does **not support** `break` or `continue` — use `return` inside the callback to skip to next iteration.
+
+```js
+const numbers = [1, 2, 3, 4, 5];
+
+numbers.forEach((num, index) => {
+  if (num === 3) return; // Skip number 3
+  console.log(`Index ${index} → ${num}`);
+});
+```
+
+**Explanation:**
+- `num` is the current item.
+- `index` is the index of the current item.
+- Using `return` inside the callback skips the current iteration, but `.forEach()` continues.
+
+📌 **Note:** You cannot use `break` or `continue` in `.forEach()` like in loops.
+
+### ✅ `.map()` — Transform Each Element
+
+- Creates a **new array** by applying a callback function to each element.
+- Original array remains **unchanged**.
+
+```js
+const numbers = [1, 2, 3, 4, 5];
+
+// Multiply each number by 2
+const doubled = numbers.map((num) => num * 2);
+
+console.log(doubled);  // [2, 4, 6, 8, 10]
+```
+
+**Use Cases:**
+- Transform data without modifying the original array.
+- Commonly used in UI rendering and data formatting.
+
+### ✅ `.filter()` — Filter Out Elements Based on a Condition
+
+- Creates a **new array** containing elements that **pass the test** (return `true` in the callback).
+- Original array remains **unchanged**.
+
+```js
+const numbers = [1, 2, 3, 4, 5];
+
+// Keep only even numbers
+const evens = numbers.filter((num) => num % 2 === 0);
+
+console.log(evens);  // [2, 4]
+```
+
+**Use Cases:**
+- Filtering based on user input or data rules.
+- Removing unwanted or falsy elements from data.
+
+📌 **Note:** Like `.map()`, `.filter()` also returns a **new array**.
+
+---
+#  Arrow Functions in JavaScript
+
+Arrow functions provide a shorter syntax for writing function expressions. Introduced in ES6.
+
+---
+
+#### 🔹 1. Basic Syntax
+
+```js
+// Traditional function
+const add = function (a, b) {
+  return a + b;
+};
+
+// Arrow function
+const addArrow = (a, b) => {
+  return a + b;
+};
+```
+
+---
+
+#### 🔹 2. Implicit Return (One-Liner Arrow Functions)
+
+- If there's only one expression, you can **omit the `return` keyword and curly braces**.
+
+```js
+const multiply = (a, b) => a * b;
+
+console.log(multiply(3, 4));  // 12
+```
+
+- If the function has only **one parameter**, you can also omit the parentheses:
+
+```js
+const square = n => n * n;
+```
+
+---
+
+#### 🔹 3. Arrow Functions & `this` Keyword
+
+Arrow functions **do not have their own `this`**. They **inherit** `this` from the surrounding scope.
+
+```js
+const person = {
+  name: "Alex",
+  greet: function () {
+    setTimeout(() => {
+      console.log(`Hello, I'm ${this.name}`);
+    }, 1000);
+  }
+};
+
+person.greet();  // ✅ Correctly logs: Hello, I'm Alex
+```
+
+If you used a regular function inside `setTimeout()`, `this.name` would be `undefined` because the context would change.
+
+---
+
+#### 🔹 4. No Hoisting
+
+- Arrow functions are **not hoisted** like function declarations.
+- You **cannot use them before they are defined**.
+
+```js
+sayHi();  // ❌ ReferenceError
+
+const sayHi = () => {
+  console.log("Hi!");
+};
+```
+
+✅ Compare with regular function (hoisted):
+
+```js
+sayHello();  // ✅ Works fine
+
+function sayHello() {
+  console.log("Hello!");
+}
+```
+
+---
+
+📌 **Summary Table: Arrow Functions**
+
+| Feature                | Arrow Function                  | Regular Function              |
+|------------------------|----------------------------------|-------------------------------|
+| Short Syntax           | ✅ Yes                          | ❌ No                         |
+| Has own `this`?        | ❌ No (inherits from parent)    | ✅ Yes                        |
+| Hoisted?               | ❌ No                           | ✅ Yes                        |
+| Use as constructor?    | ❌ No (`new` will fail)         | ✅ Yes                        |
+| Use for callbacks?     | ✅ Common                       | ✅ Common                     |
+
+---
+# ⏳ `setTimeout()` – Delay Execution
+
+The `setTimeout()` function is used to **run code after a delay** (once, not repeatedly).
+
+
+### ✅ Syntax:
+
+```js
+setTimeout(callback, delayInMilliseconds);
+```
+
+- `callback`: A function to run after the delay.
+- `delayInMilliseconds`: Time to wait (in ms) before running the function.
+
+
+
+### 🔹 Basic Example
+
+```js
+console.log("Start");
+
+setTimeout(() => {
+  console.log("This runs after 2 seconds");
+}, 2000);
+
+console.log("End");
+
+// Output:
+// Start
+// End
+// This runs after 2 seconds
+```
+
+- The code after `setTimeout()` continues to run immediately.
+- The callback runs asynchronously after the delay.
+
+
+
+### 🔹 Passing Arguments to Callback
+
+```js
+function greet(name) {
+  console.log(`Hello, ${name}`);
+}
+
+setTimeout(greet, 1500, "Alex");  // "Hello, Alex" after 1.5s
+```
+
+
+
+### 🔹 Storing Timeout ID
+
+`setTimeout()` returns a timeout ID, which you can use to cancel it later.
+
+```js
+const timeoutId = setTimeout(() => {
+  console.log("Will not run");
+}, 3000);
+
+clearTimeout(timeoutId);  // Cancels the timeout
+```
+
+
+
+📌 Use `setTimeout()` when you want to:
+- Create a delay before showing/hiding UI elements.
+- Defer code execution without blocking other operations.
+- Simulate loading or animations.
+
+--- 
+
+# 🔁 `setInterval()` & `clearInterval()` – Repeated Execution
+
+JavaScript’s `setInterval()` allows you to **run a function repeatedly** at fixed intervals. You can cancel it using `clearInterval()`.
+
+
+
+### ✅ `setInterval()` Syntax:
+
+```js
+setInterval(callback, intervalInMilliseconds);
+```
+
+- `callback`: The function to execute repeatedly.
+- `intervalInMilliseconds`: Time between each call (in ms).
+
+
+
+### 🔹 Example: Print Every 1 Second
+
+```js
+setInterval(() => {
+  console.log("This prints every second");
+}, 1000);
+```
+
+
+
+### 🔹 Stopping Repetition with `clearInterval()`
+
+Use `clearInterval()` to stop a running interval. You must save the interval ID returned by `setInterval()`.
+
+```js
+const intervalId = setInterval(() => {
+  console.log("Repeating...");
+}, 1000);
+
+setTimeout(() => {
+  clearInterval(intervalId);
+  console.log("Stopped!");
+}, 5000);
+
+// Output:
+// Repeating...
+// Repeating...
+// Repeating...
+// Repeating...
+// Repeating...
+// Stopped!
+```
+
+
+
+### 🔹 Real-World Use Case
+
+```js
+let count = 5;
+
+const countdown = setInterval(() => {
+  console.log(`Countdown: ${count}`);
+  count--;
+
+  if (count === 0) {
+    clearInterval(countdown);
+    console.log("Blastoff!");
+  }
+}, 1000);
+```
+
+
+📌 Use `setInterval()` to:
+- Update clocks, countdowns, or animations.
+- Periodically fetch data or refresh UI.
+- Poll for user activity or background changes.
+
+🛑 Always use `clearInterval()` when repetition is no longer needed to avoid memory leaks or unwanted behavior.
+
+
+---
+
+# 🔒 Closures in JavaScript
+
+A **closure** is created when a function "remembers" variables from its **outer scope**, even after that outer function has finished executing.
+
+
+
+## 🔹 1. Basic Concept
+
+```js
+function outer() {
+  let count = 0;
+
+  function inner() {
+    count++;
+    console.log(count);
+  }
+
+  return inner;
+}
+
+const counter = outer();  // outer() is called once, returns `inner`
+counter();  // 1
+counter();  // 2
+counter();  // 3
+```
+
+- Here, `inner()` still has access to `count` even though `outer()` has finished.
+- This happens because `inner()` **closes over** the variables in `outer()`.
+
+
+
+## 🔹 2. Closures Keep State Private
+
+Closures are often used to create **private variables**.
+
+```js
+function secretCounter() {
+  let secret = 0;
+
+  return {
+    increment() {
+      secret++;
+      console.log("Secret:", secret);
+    },
+    getSecret() {
+      return secret;
+    }
+  };
+}
+
+const counterObj = secretCounter();
+counterObj.increment();  // Secret: 1
+counterObj.increment();  // Secret: 2
+console.log(counterObj.getSecret());  // 2
+```
+
+✅ `secret` is **not directly accessible** from outside — only through returned methods.
+
+
+
+## 🔹 3. Closures with Loops – Common Pitfall & Fix
+
+### ❌ Problem (without closure awareness):
+
+```js
+for (var i = 1; i <= 3; i++) {
+  setTimeout(() => {
+    console.log(i);  // All print 4 after 1s
+  }, 1000);
+}
+```
+
+- Because `var` is function-scoped, all `setTimeout()` callbacks share the same `i`.
+
+### ✅ Solution using Closure (`let` or IIFE):
+
+```js
+for (let i = 1; i <= 3; i++) {
+  setTimeout(() => {
+    console.log(i);  // 1 2 3
+  }, i * 1000);
+}
+```
+
+or
+
+```js
+for (var i = 1; i <= 3; i++) {
+  (function (j) {
+    setTimeout(() => {
+      console.log(j);  // 1 2 3
+    }, j * 1000);
+  })(i);
+}
+```
+
+
+
+## 🔹 4. Real-World Closure Use: Function Factory
+
+Closures help in creating functions with preserved settings.
+
+```js
+function makeMultiplier(x) {
+  return function (y) {
+    return x * y;
+  };
+}
+
+const double = makeMultiplier(2);
+const triple = makeMultiplier(3);
+
+console.log(double(5));  // 10
+console.log(triple(4));  // 12
+```
+
+
+
+## 🔹 5. Arrow Functions & Closures
+
+Arrow functions can also form closures.
+
+```js
+function outer() {
+  let msg = "Hello";
+
+  return () => {
+    console.log(msg);
+  };
+}
+
+const sayHello = outer();
+sayHello();  // Hello
+```
+
+Arrow functions don’t have their own `this`, but they **can close over variables** like any other function.
+
+
+
+## 📌 Summary: When & Why to Use Closures
+
+| Use Case                        | Why Use Closure?                                 |
+|-------------------------------|---------------------------------------------------|
+| Private variables              | Encapsulation without classes                    |
+| Function factories             | Customize functions dynamically                  |
+| Async callbacks (e.g. timers)  | Maintain state across timeouts                   |
+| Memoization / caching          | Store and reuse previous results internally      |
+| Currying / partial application | Return chainable or pre-configured functions     |
+
+
+Closures are a **core part of JS** — understanding them makes async code, React hooks, and many libraries easier to reason about.
