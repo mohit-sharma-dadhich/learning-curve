@@ -6,13 +6,13 @@
 - [JavaScript DOM](#javascript-dom)
   - [window Object](#-window-object)
   - [document Object](#-document-object)
-  - [Element Selection in the DOM](#-2-element-selection-in-the-dom)
-  - [DOM Content & Form Input](#-3-dom-content--form-input)
+  - [Element Selection in the DOM](#element-selection-in-the-dom)
+  - [DOM Content & Form Input](#dom-content--form-inputs)
   - [Event Handling Methods](#-4-event-handling-methods)
   - [Common Event Types](#-5-common-event-types)
   - [Event Object](#-6-event-object)
   - [classList](#-classlist)
-- [Arrow Functions in JavaScript](#-arrow-functions-in-javascript)
+- [Arrow Functions in JavaScript](#arrow-functions-in-javascript)
 - [setTimeout – Delay Execution](#-settimeout--delay-execution)
 - [setInterval & clearInterval – Repeated Execution](#-setinterval--clearinterval--repeated-execution)
 - [JavaScript Loops](#-javascript-loops)
@@ -420,7 +420,7 @@ const user = {
 - JavaScript treats it as a regular function method, just written in a shorter form.
 - Useful when writing methods inside objects like event handlers, class-like structures, etc.
 
-# 🧠 JavaScript DOM:
+# JavaScript DOM:
 
 ## Browser Environment:
 
@@ -454,7 +454,7 @@ console.log(document.URL); // Gets the current URL of the page
 console.log(document.body); // Logs the <body> element
 ```
 
-## 2. Element Selection in the DOM
+## Element Selection in the DOM
 
 To interact with elements on a webpage, you must first **select** them using DOM selection methods.
 
@@ -512,7 +512,7 @@ buttons.forEach((btn) => {
 
 - `querySelectorAll()` returns a `NodeList`, which supports `.forEach()`, unlike `HTMLCollection` returned by methods like `getElementsByClassName()` or `getElementsByTagName()`.
 
-## 🖋️ 3. DOM Content & Form Input
+## DOM Content & Form Inputs
 
 This section covers how to read and update the content of elements or input fields in the DOM.
 
