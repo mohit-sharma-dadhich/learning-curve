@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Amazon</title>
+    <link rel="stylesheet" href="/src/output.css" />
+  </head>
+  <body class="flex flex-col">
+    <nav
+      class="flex justify-between sm:grid sm:grid-cols-4 sm:justify-center pl-2 pb-0 pt-1 bg-[#131921] text-white h-full items-center"
+    >
+      <!-- Logo -->
+      <section>
+        <img
+          class="h-[30.93px] cursor-pointer"
+          src="/screenshots/amazon-logo.png"
+          alt="logo"
+        />
+      </section>
+
+      <section class="flex col-span-2">
+        <input
+          type="text"
+          placeholder="Search..."
+          class="hidden min-[360px]:inline-block sm:border border-gray-300 text-black font-medium focus:outline-none rounded-l-lg px-1 w-full h-[35px] bg-white"
+        />
+        <img
+          class="cursor-pointer bg-amber-300 h-[35px] rounded-r-lg"
+          src="/screenshots/search-icon.png"
+          alt="search-icon"
+        />
+        <img
+          id="menu"
+          class="p-1.5 h-[35px] z-100 sm:hidden cursor-pointer"
+          src="/screenshots/hamburger-menu.png"
+          alt="Menu"
+        />
+      </section>
+
+      <section class="hidden sm:flex justify-around cursor-pointer">
+        <div class="flex flex-col">
+          <span class="text-sm">Return</span>
+          <span class="font-bold text-[15px]">&amp;orders</span>
+        </div>
+        <div class="place-self-center flex items-center gap-1">
+          <img class="h-[26px]" src="/screenshots/cart-icon.png" alt="cart" />
+          <span>Cart</span>
+        </div>
+      </section>
+    </nav>
+
+    <div
+      class="menu fixed z-50  "
+    ></div>
+    <main class="z-1">
+      <section
+        id="product_container"
+        class="flex flex-col p-4 sm:grid sm:grid-cols-4 gap-1"
+      ></section>
+    </main>
+    <script src="home.js"></script>
+  </body>
+</html>
