@@ -7,8 +7,9 @@ const products = [
       review: 40,
     },
     priceCent: 1090,
+    id: "01",
   },
-   {
+  {
     name: "Black and Gray Athletic Cotton Socks - 6 Pairs",
     img: "./photos/athletic-cotton-socks-6-pairs.jpg",
     rating: {
@@ -16,7 +17,8 @@ const products = [
       review: 40,
     },
     priceCent: 1090,
-  }
+    id: "02",
+  },
 ];
 
 const productContainer = document.querySelector("#product_container");
@@ -24,13 +26,15 @@ const productContainer = document.querySelector("#product_container");
 
 let innerContent = "";
 products.forEach((product) => {
-  innerContent += `  <div class="h-fit rounded shadow-md flex flex-col items p-4 gap-2">
+  innerContent += `  <div id=${
+    product.id
+  } class="h-fit rounded shadow-md flex flex-col items p-4 gap-2 product">
           <img
             class="h-auto w-[162px] mt-4 self-center"
             src="${product.img}"
             alt="product_1"
           />
-          <p class="font-semibold">
+          <p class="font-semibold product-name">
            ${product.name}
           </p>
           <div class="flex gap-0.5">
@@ -41,7 +45,9 @@ products.forEach((product) => {
             />
             <p class="text-blue-800 text-2xl">${product.rating.review}</p>
           </div>
-          <p class="font-bold text-2xl">$${(product.priceCent/100).toFixed(2)}</p>
+          <p class="font-bold text-2xl">$${(product.priceCent / 100).toFixed(
+            2
+          )}</p>
           <select
             id="options"
             name="options"
@@ -53,20 +59,19 @@ products.forEach((product) => {
             <option value="4">4</option>
           </select>
           <button
-            class="bg-amber-300 hover:bg-amber-400 text-gray-900 font-bold py-2 px-6 rounded-lg shadow-md hover:shadow-lg transition duration-200"
+            class="bg-amber-300 hover:bg-amber-400 text-gray-900 font-bold py-2 px-6 rounded-lg shadow-md hover:shadow-lg transition duration-200 add-to-cart"
           >
             Add to Cart
           </button>
         </div>`;
-        productContainer.innerHTML=innerContent;
+  productContainer.innerHTML = innerContent;
 });
 
-
-const menuBar=document.querySelector('#menu');
-let menuContainer=document.querySelector('.menu');
-menuBar.addEventListener('click',()=>{
-    if(menuContainer.innerHTML.trim() ==''){
-        menuContainer.innerHTML=`<section
+const menuBar = document.querySelector("#menu");
+let menuContainer = document.querySelector(".menu");
+menuBar.addEventListener("click", () => {
+  if (menuContainer.innerHTML.trim() == "") {
+    menuContainer.innerHTML = `<section
       class="flex flex-col  bg-[#131921] text-white h-full w-fit p-5  gap-4 z-50 fixed top-[0px] right-0    sm:hidden"
     >
       <div class="flex flex-col cursor-pointer">
@@ -74,16 +79,57 @@ menuBar.addEventListener('click',()=>{
         <span class="font-bold text-[15px]">&amp;orders</span>
       </div>
       <div class="place-self-center flex items-center gap-1">
+       <div class="flex flex-col gap-0 ">
+      <div class="total-quantity  absolute top-18 self-center font-bold text-orange-300 text-md pl-1 "></div>
         <img
           class="h-[26px] cursor-pointer"
           src="/screenshots/cart-icon.png"
           alt="cart"
         />
+        </div>
         <span>Cart</span>
       </div>
-    </section>`
+    </section>`;
+  } else {
+    menuContainer.innerHTML = "";
+  }
+});
+
+let cart = JSON.parse(localStorage.getItem("cartData")) || [];
+let totalQuantity = JSON.parse(localStorage.getItem("TotalQuantity")) || 0;
+let cartValue = document.querySelectorAll(".total-quantity");
+    cartValue.innerHTML = totalQuantity;
+
+const addToCartBtn = document.querySelectorAll(".add-to-cart");
+
+addToCartBtn.forEach((button) => {
+  button.addEventListener("click", () => {
+    const parentProduct = button.closest(".product");
+    const id = parentProduct.getAttribute("id");
+    const productName = parentProduct
+      .querySelector(".product-name")
+      .innerText.trim();
+    const quantity = Number(parentProduct.querySelector("select").value);
+
+    const existingItem = cart.find((item) => item.productID === id);
+
+    if (existingItem) {
+      existingItem.quantity += quantity;
+    } else {
+      cart.push({
+        productName: productName,
+        productID: id,
+        quantity: quantity,
+      });
     }
-    else{
-        menuContainer.innerHTML='';
-    }
-})
+        totalQuantity = 0;
+    cart.forEach((item) => {
+      totalQuantity += item.quantity;
+    });
+cartValue.innerHTML = totalQuantity;
+    
+    
+    localStorage.setItem("cartData", JSON.stringify(cart));
+    localStorage.setItem("TotalQuantity",JSON.stringify(totalQuantity));
+  });
+});
