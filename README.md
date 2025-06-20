@@ -25,7 +25,8 @@ This repo documents my journey from beginner to advanced web developer through w
 ## Connect with Me
 
 - GitHub: [https://github.com/mohit-sharma-dadhich](https://github.com/mohit-sharma-dadhich)  
-- LinkedIn: [https://www.linkedin.com/in/mohit-sharma-dadhich](www.linkedin.com/in/mohit-sharma-dadhich)
+- LinkedIn: [https://www.linkedin.com/in/mohit-sharma-dadhich](https://www.linkedin.com/in/mohit-sharma-dadhich)
+
 
 ---
 
