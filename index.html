@@ -1,102 +1,174 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Mohit Sharma – Learning Curve</title>
-  <link rel="stylesheet" href="src/output.css">
-</head>
-<body class="bg-gray-50 text-gray-800 scroll-smooth">
-  <!-- Header -->
-  <header class="bg-white shadow">
-    <div class="container mx-auto px-6 py-6 flex justify-between items-center">
-      <h1 class="text-2xl font-bold">Learning Curve 🚀</h1>
-      <nav>
-        <a href="#about" class="text-blue-600 hover:underline">About</a>
-        <a href="#stack" class="ml-4 text-blue-600 hover:underline">Tech Stack</a>
-        <a href="#projects" class="ml-4 text-blue-600 hover:underline">Projects</a>
-        <a href="#logs" class="ml-4 text-blue-600 hover:underline">Logs</a>
-      </nav>
-    </div>
-  </header>
-
-  <!-- Intro -->
-  <main class="container mx-auto px-6 py-12">
-    <section id="about" class="mb-16 text-center">
-      <h2 class="text-3xl font-semibold mb-4">Hi, I'm Mohit 👋</h2>
-      <p class="max-w-2xl mx-auto text-gray-700">
-        This is my learning curve — a personal space where I build, break, fix, and grow. From HTML basics to full-stack apps, everything is documented right here.
-      </p>
-    </section>
-
-    <!-- Tech Stack -->
-    <section id="stack" class="mb-16 text-center">
-      <h3 class="text-xl font-semibold mb-4">Tech Stack</h3>
-      <div class="flex flex-wrap justify-center gap-4 text-gray-700">
-        <span class="bg-blue-100 px-3 py-1 rounded-full">HTML</span>
-        <span class="bg-blue-100 px-3 py-1 rounded-full">CSS</span>
-        <span class="bg-blue-100 px-3 py-1 rounded-full">Tailwind CSS</span>
-        <span class="bg-blue-100 px-3 py-1 rounded-full">JavaScript</span>
-        <span class="bg-blue-100 px-3 py-1 rounded-full">Node.js (upcoming)</span>
-        <span class="bg-blue-100 px-3 py-1 rounded-full">React (upcoming)</span>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Mohit Sharma – Learning Curve</title>
+    <link rel="stylesheet" href="src/output.css" />
+  </head>
+  <body class="bg-gray-50 text-gray-800 scroll-smooth">
+    <!-- Header -->
+    <header class="bg-white shadow">
+      <div
+        class="container mx-auto px-6 py-6 flex justify-between items-center"
+      >
+        <h1 class="text-2xl font-bold">Learning Curve 🚀</h1>
+        <nav>
+          <a href="#about" class="text-blue-600 hover:underline">About</a>
+          <a href="#stack" class="ml-4 text-blue-600 hover:underline"
+            >Tech Stack</a
+          >
+          <a href="#projects" class="ml-4 text-blue-600 hover:underline"
+            >Projects</a
+          >
+          <a href="#logs" class="ml-4 text-blue-600 hover:underline">Logs</a>
+        </nav>
       </div>
-    </section>
+    </header>
 
-    <!-- Projects -->
-    <section id="projects" class="mb-16">
-      <h3 class="text-2xl font-semibold mb-6 text-center">Practice Projects</h3>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        <!-- Project 1 -->
-        <div class="bg-white p-6 rounded-lg shadow">
-          <h4 class="text-lg font-bold mb-2">Portfolio Landing Page</h4>
-          <p class="text-sm mb-2 text-gray-600">A visually polished portfolio design to practice layout and responsiveness.</p>
-          <p class="text-xs text-gray-500 mb-2">Tech: HTML, CSS</p>
-          <a href="mini-projects/01_portfolio_landing_page/index.html" class="text-blue-600 text-sm hover:underline">View Project</a>
-        </div>
+    <!-- Intro -->
+    <main class="container mx-auto px-6 py-12">
+      <section id="about" class="mb-16 text-center">
+        <h2 class="text-3xl font-semibold mb-4">Hi, I'm Mohit 👋</h2>
+        <p class="max-w-2xl mx-auto text-gray-700">
+          This is my learning curve — a personal space where I build, break,
+          fix, and grow. From HTML basics to full-stack apps, everything is
+          documented right here.
+        </p>
+      </section>
 
-        <!-- Project 2 -->
-        <div class="bg-white p-6 rounded-lg shadow">
-          <h4 class="text-lg font-bold mb-2">Amazon Clone (Static)</h4>
-          <p class="text-sm mb-2 text-gray-600">A basic shopping UI with cart visuals using vanilla JavaScript.</p>
-          <p class="text-xs text-gray-500 mb-2">Tech: HTML, CSS, JS</p>
-          <a href="mini-projects/02_amazon_clone/index.html" class="text-blue-600 text-sm hover:underline">View Project</a>
+      <!-- Tech Stack -->
+      <section id="stack" class="mb-16 text-center">
+        <h3 class="text-xl font-semibold mb-4">Tech Stack</h3>
+        <div class="flex flex-wrap justify-center gap-4 text-gray-700">
+          <span class="bg-blue-100 px-3 py-1 rounded-full">HTML</span>
+          <span class="bg-blue-100 px-3 py-1 rounded-full">CSS</span>
+          <span class="bg-blue-100 px-3 py-1 rounded-full">Tailwind CSS</span>
+          <span class="bg-blue-100 px-3 py-1 rounded-full">JavaScript</span>
+          <span class="bg-blue-100 px-3 py-1 rounded-full"
+            >Node.js (upcoming)</span
+          >
+          <span class="bg-blue-100 px-3 py-1 rounded-full"
+            >React (upcoming)</span
+          >
         </div>
+      </section>
 
-        <!-- Project 3 -->
-        <div class="bg-white p-6 rounded-lg shadow">
-          <h4 class="text-lg font-bold mb-2">To-Do App (DOM Practice)</h4>
-          <p class="text-sm mb-2 text-gray-600">Add, check, delete tasks — using JavaScript DOM manipulation.</p>
-          <p class="text-xs text-gray-500 mb-2">Tech: HTML, CSS, JS</p>
-          <a href="Javascript/Document_Object_model/to-do.html" class="text-blue-600 text-sm hover:underline">View Project</a>
-        </div>
+      <!-- Projects -->
+      <section id="projects" class="mb-16">
+        <h3 class="text-2xl font-semibold mb-6 text-center">
+          Practice Projects
+        </h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Project 1 -->
 
-        <!-- Project 4 -->
-        <div class="bg-white p-6 rounded-lg shadow">
-          <h4 class="text-lg font-bold mb-2">Stone Paper Scissors</h4>
-          <p class="text-sm mb-2 text-gray-600">Classic game made with conditional logic and basic interactivity.</p>
-          <p class="text-xs text-gray-500 mb-2">Tech: HTML, CSS, JS</p>
-          <a href="Javascript/Basics_of_JS/basics_of_js.html" class="text-blue-600 text-sm hover:underline">Play Now</a>
+          <div class="bg-white p-6 rounded-lg shadow">
+            <h4 class="text-lg font-bold mb-2">Amazon Clone (Static)</h4>
+            <p class="text-sm mb-2 text-gray-600">
+              A basic shopping UI with cart visuals using vanilla JavaScript.
+            </p>
+            <p class="text-xs text-gray-500 mb-2">Tech: HTML, CSS, JS</p>
+            <a
+              href="mini-projects/02_amazon_clone/index.html"
+              class="text-blue-600 text-sm hover:underline"
+              >View Project</a
+            >
+          </div>
+
+          <!-- Project 2 -->
+          <div class="bg-white p-6 rounded-lg shadow">
+            <h4 class="text-lg font-bold mb-2">To-Do App (DOM Practice)</h4>
+            <p class="text-sm mb-2 text-gray-600">
+              Add, check, delete tasks — using JavaScript DOM manipulation.
+            </p>
+            <p class="text-xs text-gray-500 mb-2">Tech: HTML, CSS, JS</p>
+            <a
+              href="Javascript/Document_Object_model/to-do.html"
+              class="text-blue-600 text-sm hover:underline"
+              >View Project</a
+            >
+          </div>
+
+          <!-- Project 3 -->
+          <div class="bg-white p-6 rounded-lg shadow">
+            <h4 class="text-lg font-bold mb-2">Stone Paper Scissors</h4>
+            <p class="text-sm mb-2 text-gray-600">
+              Classic game made with conditional logic and basic interactivity.
+            </p>
+            <p class="text-xs text-gray-500 mb-2">Tech: HTML, CSS, JS</p>
+            <a
+              href="Javascript/Basics_of_JS/basics_of_js.html"
+              class="text-blue-600 text-sm hover:underline"
+              >Play Now</a
+            >
+          </div>
+          <!-- project-04  -->
+          <div class="bg-white p-6 rounded-lg shadow">
+            <h4 class="text-lg font-bold mb-2">Portfolio Landing Page</h4>
+            <p class="text-sm mb-2 text-gray-600">
+              A visually polished portfolio design to practice layout (Only
+              Desktop friendly)
+            </p>
+            <p class="text-xs text-gray-500 mb-2">Tech: HTML, CSS</p>
+            <a
+              href="mini-projects/01_portfolio_landing_page/index.html"
+              class="text-blue-600 text-sm hover:underline"
+              >View Project</a
+            >
+          </div>
         </div>
+      </section>
+
+      <!-- Logs -->
+      <section id="logs" class="mb-16 text-center">
+        <h3 class="text-xl font-semibold mb-4">Dev Logs</h3>
+        <p class="text-gray-600 mb-4">
+          I keep logs of what I learn — structured notes for future me.
+        </p>
+        <ul
+          class="list-disc list-inside text-left inline-block text-blue-600 space-y-2"
+        >
+          <li>
+            <a
+              href="https://github.com/mohit-sharma-dadhich/learning-curve/blob/main/dev-journal/HTML_CSS-log.md"
+              target="_blank"
+              class="hover:underline"
+              >HTML & CSS Log</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://github.com/mohit-sharma-dadhich/learning-curve/blob/main/dev-journal/Javascript-log.md"
+              target="_blank"
+              class="hover:underline"
+              >JavaScript Log</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://github.com/mohit-sharma-dadhich/learning-curve/blob/main/resources.md"
+              target="_blank"
+              class="hover:underline"
+              >Resources Used</a
+            >
+          </li>
+        </ul>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t py-6">
+      <div class="container mx-auto px-6 text-center text-gray-600">
+        <a
+          href="https://www.linkedin.com/in/mohit-sharma-dadhich"
+          class="text-blue-600 px-2 hover:underline"
+          >LinkedIn</a
+        ><a
+          href="https://github.com/mohit-sharma-dadhich"
+          class="text-blue-600 hover:underline"
+          >GitHub</a
+        >
       </div>
-    </section>
-
-    <!-- Logs -->
-    <section id="logs" class="mb-16 text-center">
-      <h3 class="text-xl font-semibold mb-4">Dev Logs</h3>
-      <p class="text-gray-600 mb-4">I keep logs of what I learn — structured notes for future me.</p>
-      <ul class="list-disc list-inside text-left inline-block text-blue-600 space-y-2">
-        <li><a href="https://github.com/mohit-sharma-dadhich/learning-curve/blob/main/dev-journal/HTML_CSS-log.md" target="_blank" class="hover:underline">HTML & CSS Log</a></li>
-        <li><a href="https://github.com/mohit-sharma-dadhich/learning-curve/blob/main/dev-journal/Javascript-log.md" target="_blank" class="hover:underline">JavaScript Log</a></li>
-        <li><a href="https://github.com/mohit-sharma-dadhich/learning-curve/blob/main/resources.md" target="_blank" class="hover:underline">Resources Used</a></li>
-      </ul>
-    </section>
-  </main>
-
-  <!-- Footer -->
-  <footer class="bg-white border-t  py-6">
-    <div class="container mx-auto px-6 text-center text-gray-600">
-      <a href="https://www.linkedin.com/in/mohit-sharma-dadhich" class="text-blue-600 px-2  hover:underline">LinkedIn</a><a href="https://github.com/mohit-sharma-dadhich" class="text-blue-600 hover:underline">GitHub</a>
-    </div>
-  </footer>
-</body>
+    </footer>
+  </body>
 </html>
