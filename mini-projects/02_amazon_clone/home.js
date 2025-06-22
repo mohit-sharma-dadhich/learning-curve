@@ -8,17 +8,7 @@ const products = [
     },
     priceCent: 1090,
     id: "01",
-  },
-  {
-    name: "Black and Gray Athletic Cotton Socks - 6 Pairs",
-    img: "./photos/athletic-cotton-socks-6-pairs.jpg",
-    rating: {
-      stars: 4.5,
-      review: 40,
-    },
-    priceCent: 1090,
-    id: "02",
-  },
+  }
 ];
 
 const productContainer = document.querySelector("#product_container");
@@ -39,7 +29,7 @@ products.forEach((product) => {
           </p>
           <div class="flex gap-0.5">
             <img
-              class="w-[100px] h-auto"
+              class="w-[100px] h-[20px] object-contain"
               src="./photos/rating-${product.rating.stars}.png"
               alt="Stars-rating"
             />
@@ -79,17 +69,21 @@ menuBar.addEventListener("click", () => {
         <span class="font-bold text-[15px]">&amp;orders</span>
       </div>
       <div class="place-self-center flex items-center gap-1">
-       <div class="flex flex-col gap-0 ">
-      <div class="total-quantity  absolute top-18 self-center font-bold text-orange-300 text-md pl-1 "></div>
-        <img
-          class="h-[26px] cursor-pointer"
-          src="./photos/cart-icon.png"
-          alt="cart"
-        />
-        </div>
+           <a class="flex" 
+           href="cart.html"><div class="flex flex-col gap-0 ">
+                <div class="total-quantity  absolute top-18 self-center  font-bold text-orange-300 text-md pl-1 ">
+                   </div>
+                  <img
+                    class="h-[26px] cursor-pointer"
+                    src="./photos/cart-icon.png"
+                    alt="cart"
+                  />
+               </div>
         <span>Cart</span>
+        </a>
       </div>
     </section>`;
+    showCartValue();
   } else {
     menuContainer.innerHTML = "";
   }
@@ -97,8 +91,7 @@ menuBar.addEventListener("click", () => {
 
 let cart = JSON.parse(localStorage.getItem("cartData")) || [];
 let totalQuantity = JSON.parse(localStorage.getItem("TotalQuantity")) || 0;
-let cartValue = document.querySelectorAll(".total-quantity");
-    cartValue.innerHTML = totalQuantity;
+showCartValue();
 
 const addToCartBtn = document.querySelectorAll(".add-to-cart");
 
@@ -111,25 +104,37 @@ addToCartBtn.forEach((button) => {
       .innerText.trim();
     const quantity = Number(parentProduct.querySelector("select").value);
 
-    const existingItem = cart.find((item) => item.productID === id);
+    const findDetails = products.find((product)=>product.id === id );
+    const existingItem = cart.find((item) => item.id === id);
 
     if (existingItem) {
       existingItem.quantity += quantity;
     } else {
       cart.push({
-        productName: productName,
-        productID: id,
+        ...findDetails,
         quantity: quantity,
       });
     }
-        totalQuantity = 0;
+    
+    showCartValue();
+
+    localStorage.setItem("cartData", JSON.stringify(cart));
+    localStorage.setItem("TotalQuantity", JSON.stringify(totalQuantity));
+  });
+});
+
+showCartValue(); 
+function showCartValue() {
+  totalQuantity = 0;
     cart.forEach((item) => {
       totalQuantity += item.quantity;
     });
-cartValue.innerHTML = totalQuantity;
-    
-    
+  
     localStorage.setItem("cartData", JSON.stringify(cart));
-    localStorage.setItem("TotalQuantity",JSON.stringify(totalQuantity));
+    localStorage.setItem("TotalQuantity", JSON.stringify(totalQuantity));
+  let cartValue = document.querySelectorAll(".total-quantity");
+  cartValue.forEach((cart) => {
+    cart.innerHTML = totalQuantity;
   });
-});
+}
+

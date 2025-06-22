@@ -14,91 +14,38 @@
           alt="amazon-logo"
         />
         <span class="text-lg text-white"
-          >Checkout <span class="text-orange-400">(3 items)</span></span
+          >Checkout <span class="text-orange-400" id="nav-item-count">(3 items)</span></span
         >
       </div>
     </header>
 
- 
     <main
       class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-6 mt-6 px-4"
     >
       <!-- Left: Products -->
-      <section class="lg:col-span-2 space-y-6">
-        <!-- Product Box -->
-        <div class="bg-white p-4 rounded shadow border">
-          <p class="text-green-600 font-semibold mb-2">
-            Delivery date: <span class="text-lg">Thursday, June 26</span>
-          </p>
-          <div class="flex gap-4">
-            <img
-              src="./photos/athletic-cotton-socks-6-pairs.jpg"
-              class="w-24 h-24 object-contain"
-            />
-
-            <div class="flex-1">
-              <h2 class="font-semibold text-gray-800">
-                Intermediate Size Basketball
-              </h2>
-              <p class="text-red-600 font-semibold mt-1">$20.95</p>
-              <p class="mt-1">
-                Quantity: <span class="font-semibold">1</span>
-                <a href="#" class="text-blue-600 hover:underline ml-2"
-                  >Update</a
-                >
-                <a href="#" class="text-blue-600 hover:underline ml-2"
-                  >Delete</a
-                >
-              </p>
-            </div>
-
-            <div class="text-sm">
-              <p class="font-semibold mb-1">Choose a delivery option:</p>
-              <label class="block">
-                <input type="radio" name="delivery1" checked />
-                <span class="text-green-600 font-semibold ml-1"
-                  >Thursday, June 26</span
-                ><br />
-                <span class="ml-5 text-gray-600">FREE Shipping</span>
-              </label>
-              <label class="block mt-1">
-                <input type="radio" name="delivery1" />
-                <span class="ml-1">Friday, June 20</span><br />
-                <span class="ml-5 text-gray-600">$4.99 - Shipping</span>
-              </label>
-              <label class="block mt-1">
-                <input type="radio" name="delivery1" />
-                <span class="ml-1">Wednesday, June 18</span><br />
-                <span class="ml-5 text-gray-600">$9.99 - Shipping</span>
-              </label>
-            </div>
-          </div>
-        </div>
-
-        <!-- Duplicate for other products as needed -->
-      </section>
+      <section id="productContainer" class="lg:col-span-2 space-y-6"></section>
 
       <!-- Right: Order Summary -->
       <aside class="bg-white p-6 rounded shadow h-fit">
         <h3 class="text-lg font-semibold mb-4">Order Summary</h3>
         <div class="space-y-1 text-sm text-gray-700">
           <div class="flex justify-between">
-            <span>Items (3):</span><span>$39.84</span>
+            <span class="order-summary-item"></span><span class="item-price"></span>
           </div>
           <div class="flex justify-between">
-            <span>Shipping & handling:</span><span>$0.00</span>
+            <span>Shipping & handling:</span><span class="shipping-total"></span>
           </div>
           <div class="flex justify-between">
-            <span>Total before tax:</span><span>$39.84</span>
+            <span>Total before tax:</span><span class="total-before-tax"></span>
           </div>
           <div class="flex justify-between">
-            <span>Estimated tax (10%):</span><span>$3.98</span>
+            <span>Estimated tax (10%):</span ><span class="tax"></span>
           </div>
         </div>
         <div
           class="border-t mt-3 pt-3 text-red-600 font-bold flex justify-between text-lg"
         >
-          <span>Order total:</span><span>$43.82</span>
+          <span>Order total:</span ><span class="order-total"></span>
         </div>
         <button
           class="mt-4 bg-yellow-400 hover:bg-yellow-500 w-full py-2 rounded text-black font-bold"
@@ -109,6 +56,5 @@
     </main>
 
     <script src="cart.js"></script>
-
   </body>
 </html>
