@@ -83,7 +83,7 @@ menuBar.addEventListener("click", () => {
       <div class="total-quantity  absolute top-18 self-center font-bold text-orange-300 text-md pl-1 "></div>
         <img
           class="h-[26px] cursor-pointer"
-          src="/screenshots/cart-icon.png"
+          src="./photos/cart-icon.png"
           alt="cart"
         />
         </div>
