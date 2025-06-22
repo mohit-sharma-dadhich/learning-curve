@@ -39,7 +39,7 @@ cart.forEach(product  => {
         </p>
       </div>
 
-      <div class="text-sm sm:w-[250px]">
+      <div class="text-sm w-full  sm:w-[250px]">
         <p class="font-semibold mb-1">Choose a delivery option:</p>
         
         <label class="block">
