@@ -3,6 +3,11 @@
 Welcome to my personal web development learning repository!  
 This repo documents my journey from beginner to advanced web developer through weekly lessons, projects, and notes.
 
+## 🌐 Live Site
+
+Check out my  **Projects** here:  
+👉 [learning-curve](https://mohit-sharma-dadhich.github.io/learning-curve/#about)
+
 ## Repository Structure
 
 - `Week1_HTML_CSS/` – HTML and CSS basics with mini projects like Profile Card  
