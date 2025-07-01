@@ -15,7 +15,7 @@ cart.forEach(product  => {
     productContainerCart.innerHTML += `
   <div class="bg-white p-4 rounded shadow border mb-4">
     <p class="text-green-600 font-semibold mb-2">
-      Delivery date: <span class="text-lg">${getDeliveryDate(0)}</span>
+      Order Date: <span class="text-lg">${getDeliveryDate(0)}</span>
     </p>
 
     <div class="flex flex-col min-[400px]:flex-row gap-4">
@@ -34,7 +34,18 @@ cart.forEach(product  => {
         </p>
         <p class="mt-1 text-sm">
           Quantity: <span class="font-semibold">${product.quantity}</span>
-          <button class="text-blue-600 ml-2 cursor-pointer">Update</button>
+          <input type="number" 
+         class=" hidden quantity-input w-16 px-1 border rounded text-black"
+         data-id="${product.id}"
+         min="1"
+         
+      />
+           <button class="text-green-600 ml-2 cursor-pointer save-btn hidden " data-id="${product.id}">
+    Save
+             </button>
+
+          <button class="text-blue-600 ml-2 cursor-pointer 
+          update-btn " data-id="${product.id}" >Update</button>
           <button class="text-blue-600 ml-2 cursor-pointer dlt-btn" data-id="${product.id}">Delete</button>
         </p>
       </div>
@@ -121,7 +132,7 @@ function getShippingAmount(productId) {
 }
 
 function totalBfTax(){
-  totalBTax=0;
+   let totalBTax=0;
   totalBTax += calculateItemPrice()+totalShippingAmount();
 
   return totalBTax
@@ -142,6 +153,7 @@ document.querySelectorAll('input[type="radio"][name^="product"]').forEach((radio
 });
 
 
+
 document.querySelectorAll('.dlt-btn').forEach(button => {
   button.addEventListener('click', () => {
     const productId = button.dataset.id; 
@@ -149,12 +161,56 @@ document.querySelectorAll('.dlt-btn').forEach(button => {
   });
 });
 
+document.querySelectorAll('.update-btn').forEach(button => {
+  button.addEventListener('click', () => {
+    const productId = button.dataset.id; 
+    document.querySelector(`.save-btn[data-id="${productId}"`).classList.remove("hidden");
+
+    document.querySelector(`.quantity-input[data-id="${productId}"`).classList.remove("hidden");
+
+    button.classList.add("hidden");
+   
+  });
+});
+
+document.querySelectorAll('.save-btn').forEach(button=>{
+  button.addEventListener("click",()=>{
+    const productId =button.dataset.id;
+    document.querySelector(`.update-btn[data-id="${productId}"`).classList.remove("hidden");
+
+    
+    document.querySelector(`.quantity-input[data-id="${productId}"`).classList.add("hidden");
+
+  let newQuantity= document.querySelector(`.quantity-input[data-id="${productId}"`).value;
+  
+  updateProductQuantity(productId,newQuantity);
+  
+    button.classList.add("hidden");
+  })
+})
+
+
 function deleteProductFromCart(productId) {
   
   cart = cart.filter(product => product.id != productId);
 
  
   localStorage.setItem('cartData', JSON.stringify(cart));
-
+  updateTotalQuantity();
   location.reload(); 
+}
+
+function updateProductQuantity(productId,newQuantity){
+   let product = cart.find(item=> item.id ===productId);
+   product.quantity=Number(newQuantity);
+   localStorage.setItem('cartData', JSON.stringify(cart));
+   updateTotalQuantity();
+  location.reload(); 
+}
+function updateTotalQuantity(){
+   let totalQuantity=0;
+   cart.forEach((item)=>{
+    totalQuantity+=item.quantity;
+   })
+   localStorage.setItem("TotalQuantity", JSON.stringify(totalQuantity));
 }
