@@ -33,11 +33,17 @@ cart.forEach(product  => {
           $${(product.priceCent / 100).toFixed(2)}
         </p>
         <p class="mt-1 text-sm">
-          Quantity: <span class="font-semibold">${product.quantity}</span>
+
+          Quantity: <span class="font-semibold show-quantity" data-id="${product.id}">${product.quantity}</span>
+
+
           <input type="number" 
          class=" hidden quantity-input w-16 px-1 border rounded text-black"
          data-id="${product.id}"
          min="1"
+         max="100"
+         step="1"
+         placeholder="1"
          
       />
            <button class="text-green-600 ml-2 cursor-pointer save-btn hidden " data-id="${product.id}">
@@ -168,6 +174,8 @@ document.querySelectorAll('.update-btn').forEach(button => {
 
     document.querySelector(`.quantity-input[data-id="${productId}"`).classList.remove("hidden");
 
+    document.querySelector(`.show-quantity[data-id="${productId}"`).classList.add("hidden");
+
     button.classList.add("hidden");
    
   });
@@ -181,9 +189,10 @@ document.querySelectorAll('.save-btn').forEach(button=>{
     
     document.querySelector(`.quantity-input[data-id="${productId}"`).classList.add("hidden");
 
-  let newQuantity= document.querySelector(`.quantity-input[data-id="${productId}"`).value;
+  let newQuantity= document.querySelector(`.quantity-input[data-id="${productId}"`).value || "1";
   
   updateProductQuantity(productId,newQuantity);
+  document.querySelector(`.show-quantity[data-id="${productId}"`).classList.remove("hidden");
   
     button.classList.add("hidden");
   })
