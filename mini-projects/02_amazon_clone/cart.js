@@ -191,6 +191,10 @@ document.querySelectorAll('.save-btn').forEach(button=>{
 
   let newQuantity= document.querySelector(`.quantity-input[data-id="${productId}"`).value || "1";
   
+  if(newQuantity==="0"){
+    deleteProductFromCart(productId);
+  }
+
   updateProductQuantity(productId,newQuantity);
   document.querySelector(`.show-quantity[data-id="${productId}"`).classList.remove("hidden");
   
