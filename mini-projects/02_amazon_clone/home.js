@@ -1,66 +1,6 @@
 import { products } from "./product_details.js";
-
-const productContainer = document.querySelector("#product_container");
-// console.log(productContainer);
-
-let innerContent = "";
-products.forEach((product) => {
-  innerContent += ` 
-   <div id=${product.id} 
-      class=" h-full rounded shadow-md flex flex-col justify-between  items p-4 gap-2 product">
-      <div class="h-1/2 self-center ">
-          <img
-            class="h-auto w-[162px]  mt-4 self-center"
-            src="${product.img}"
-            alt="product_${product.id}"
-          />
-        </div> 
-          <p class="h-1/4 font-semibold product-name">
-           ${product.name}
-          </p>
-     <div class="flex flex-col gap-3 "> 
-          <div class="flex gap-0.5 items-center ">
-            <img
-              class="w-[100px] h-[20px] object-contain"
-              src="./star_photos/rating-${product.rating.stars}.png"
-              alt="Stars-rating"
-            />
-            <p class="text-blue-800 self-center text-lg">${product.rating.review}</p>
-          </div>
-     
-          <p class="font-bold text-2xl">$${(product.priceCent / 100).toFixed(
-            2
-          )}</p>
-          
-          <select
-            id="options"
-            name="options"
-            class="block w-1/2 p-2 border border-gray-300 bg-gray-100 rounded-lg"
-          >
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-          </select>
-     </div>
-          
-        <div class="relative mt-1.5 h-3 overflow-visible">
-            <p
-              class="absolute bottom-0.5  opacity-0 pointer-events-none translate-y-1 transition-all duration-300 ease-in-out text-sm text-green-600 added-msg"
-              data-id="${product.id}">
-                 ✅ Added successfully
-            </p>
-          </div>
-
-
-          <button
-            class="bg-amber-300 hover:bg-amber-400 text-gray-900 font-bold py-2 px-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-200 add-to-cart"
-          >
-            Add to Cart
-          </button>
- </div>`;
-  productContainer.innerHTML = innerContent;
-});
+import { renderProducts } from "./render_products.js";
+renderProducts(products);
 
 const menuBar = document.querySelector("#menu");
 let menuContainer = document.querySelector(".menu");
@@ -154,3 +94,4 @@ function showCartValue() {
   });
   menuQuantityCount.innerHTML = totalQuantity;
 }
+
