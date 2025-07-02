@@ -7,9 +7,9 @@ let innerContent = "";
 products.forEach((product) => {
   innerContent += `  <div id=${
     product.id
-  } class="h-fit  rounded shadow-md flex flex-col items p-4 gap-2 product">
+  } class="  rounded shadow-md flex flex-col justify-between  items p-4 gap-2 product">
           <img
-            class="h-auto w-[162px] mt-4 self-center"
+            class="h-auto w-[162px]  mt-4 self-center"
             src="${product.img}"
             alt="product_1"
           />
@@ -19,10 +19,10 @@ products.forEach((product) => {
           <div class="flex gap-0.5 items-center ">
             <img
               class="w-[100px] h-[20px] object-contain"
-              src="./photos/rating-${product.rating.stars}.png"
+              src="./star_photos/rating-${product.rating.stars}.png"
               alt="Stars-rating"
             />
-            <p class="text-blue-800 text-xl">${product.rating.review}</p>
+            <p class="text-blue-800 text-lg">${product.rating.review}</p>
           </div>
           <p class="font-bold text-2xl">$${(product.priceCent / 100).toFixed(
             2
@@ -109,15 +109,6 @@ addToCartBtn.forEach((button) => {
     const findDetails = products.find((product) => product.id === id);
     const existingItem = cart.find((item) => item.id === id);
 
-    let addedMsg = document.querySelector(`.added-msg[data-id="${id}"`);
-    addedMsg.classList.remove("opacity-0", "pointer-events-none");
-    addedMsg.classList.add("opacity-100");
-
-    setTimeout(() => {
-      addedMsg.classList.remove("opacity-100");
-      addedMsg.classList.add("opacity-0", "pointer-events-none");
-    }, 1000);
-
     if (existingItem) {
       existingItem.quantity += quantity;
     } else {
@@ -126,6 +117,15 @@ addToCartBtn.forEach((button) => {
         quantity: quantity,
       });
     }
+
+    let addedMsg = document.querySelector(`.added-msg[data-id="${id}"`);
+    addedMsg.classList.remove("opacity-0", "pointer-events-none");
+    addedMsg.classList.add("opacity-100");
+
+    setTimeout(() => {
+      addedMsg.classList.remove("opacity-100");
+      addedMsg.classList.add("opacity-0", "pointer-events-none");
+    }, 1000);
 
     showCartValue();
 
