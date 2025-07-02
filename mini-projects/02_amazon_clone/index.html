@@ -23,10 +23,10 @@
         <input
           type="text"
           placeholder="Search..."
-          class=" min-[360px]:inline-block sm:border border-gray-300 text-black font-medium focus:outline-none rounded-l-lg px-1 w-full h-[35px] bg-white"
+          class="min-[360px]:inline-block sm:border border-gray-300 text-black font-medium focus:outline-none rounded-l-lg px-1 w-full h-[35px] bg-white"
         />
         <img
-          class="max-[360px]:hidden  min-[360px]:cursor-pointer bg-amber-300 h-[35px] rounded-r-lg"
+          class="max-[360px]:hidden min-[360px]:cursor-pointer bg-amber-300 h-[35px] rounded-r-lg"
           src="./photos/search-icon.png"
           alt="search-icon"
         />
@@ -36,6 +36,9 @@
           src="./photos/hamburger-menu.png"
           alt="Menu"
         />
+        <p
+          class="absolute top-[-2px] right-0.5 sm:hidden bg-amber-400 text-black text-xs   font-semibold px-1.5 py-0.5 rounded-full shadow-md z-101 menu-quantity-count min-w-[18px] text-center mt-0.5 "
+        ></p>
       </section>
 
       <section class="hidden sm:flex justify-around cursor-pointer">
@@ -48,9 +51,9 @@
           href="cart.html"
           class="place-self-center flex items-center gap-1 relative"
         >
-          <div class="flex flex-col gap-0 m-0 p-0  ">
+          <div class="flex flex-col gap-0 m-0 p-0">
             <div
-              class="total-quantity text-orange-400 text-md  self-center -top-2  absolute font-bold pl-1"
+              class="total-quantity text-orange-400 text-md self-center -top-2 absolute font-bold pl-1"
             ></div>
             <img class="h-[26px]" src="./photos/cart-icon.png" alt="cart" />
           </div>

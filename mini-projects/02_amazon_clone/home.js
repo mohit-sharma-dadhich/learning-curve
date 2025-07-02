@@ -69,7 +69,9 @@ products.forEach((product) => {
 
 const menuBar = document.querySelector("#menu");
 let menuContainer = document.querySelector(".menu");
+let menuQuantityCount = document.querySelector(".menu-quantity-count");
 menuBar.addEventListener("click", () => {
+ menuQuantityCount.classList.toggle("hidden");
   if (menuContainer.innerHTML.trim() == "") {
     menuContainer.innerHTML = `<section
       class="flex flex-col  bg-[#131921] text-white h-full w-fit p-5  gap-4 z-50 fixed top-[0px] right-0    sm:hidden"
@@ -146,5 +148,6 @@ function showCartValue() {
   cartValue.forEach((cart) => {
     cart.innerHTML = totalQuantity;
   });
+  menuQuantityCount.innerHTML=totalQuantity;
 }
 
