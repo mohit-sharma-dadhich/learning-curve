@@ -5,17 +5,20 @@ const productContainer = document.querySelector("#product_container");
 
 let innerContent = "";
 products.forEach((product) => {
-  innerContent += `  <div id=${
-    product.id
-  } class="  rounded shadow-md flex flex-col justify-between  items p-4 gap-2 product">
+  innerContent += ` 
+   <div id=${product.id} 
+      class=" h-full rounded shadow-md flex flex-col justify-between  items p-4 gap-2 product">
+      <div class="h-1/2 ">
           <img
             class="h-auto w-[162px]  mt-4 self-center"
             src="${product.img}"
             alt="product_1"
           />
-          <p class="font-semibold product-name">
+        </div> 
+          <p class="h-1/4 font-semibold product-name">
            ${product.name}
           </p>
+     <div class="flex flex-col gap-3 "> 
           <div class="flex gap-0.5 items-center ">
             <img
               class="w-[100px] h-[20px] object-contain"
@@ -24,9 +27,11 @@ products.forEach((product) => {
             />
             <p class="text-blue-800 text-lg">${product.rating.review}</p>
           </div>
+     
           <p class="font-bold text-2xl">$${(product.priceCent / 100).toFixed(
             2
           )}</p>
+          
           <select
             id="options"
             name="options"
@@ -37,9 +42,9 @@ products.forEach((product) => {
             <option value="3">3</option>
             <option value="4">4</option>
           </select>
-
+     </div>
           
-          <div class="relative h-3 overflow-visible">
+        <div class="relative h-3 overflow-visible">
             <p
               class="absolute bottom-0.5  opacity-0 pointer-events-none translate-y-1 transition-all duration-300 ease-in-out text-sm text-green-600 added-msg"
               data-id="${product.id}">
@@ -53,7 +58,7 @@ products.forEach((product) => {
           >
             Add to Cart
           </button>
-        </div>`;
+ </div>`;
   productContainer.innerHTML = innerContent;
 });
 

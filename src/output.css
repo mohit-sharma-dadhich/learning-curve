@@ -362,6 +362,9 @@
   .m-2 {
     margin: calc(var(--spacing) * 2);
   }
+  .m-4 {
+    margin: calc(var(--spacing) * 4);
+  }
   .m-6 {
     margin: calc(var(--spacing) * 6);
   }
@@ -422,6 +425,12 @@
   .ml-5 {
     margin-left: calc(var(--spacing) * 5);
   }
+  .line-clamp-2 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+  }
   .block {
     display: block;
   }
@@ -448,6 +457,12 @@
   }
   .h-1 {
     height: calc(var(--spacing) * 1);
+  }
+  .h-1\/2 {
+    height: calc(1/2 * 100%);
+  }
+  .h-1\/3 {
+    height: calc(1/3 * 100%);
   }
   .h-1\/4 {
     height: calc(1/4 * 100%);
@@ -485,6 +500,9 @@
   .h-\[35px\] {
     height: 35px;
   }
+  .h-\[150px\] {
+    height: 150px;
+  }
   .h-\[232px\] {
     height: 232px;
   }
@@ -515,8 +533,14 @@
   .w-32 {
     width: calc(var(--spacing) * 32);
   }
+  .w-\[90px\] {
+    width: 90px;
+  }
   .w-\[100px\] {
     width: 100px;
+  }
+  .w-\[150px\] {
+    width: 150px;
   }
   .w-\[162px\] {
     width: 162px;
@@ -567,6 +591,9 @@
   .grid-cols-1 {
     grid-template-columns: repeat(1, minmax(0, 1fr));
   }
+  .grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
   .grid-rows-3 {
     grid-template-rows: repeat(3, minmax(0, 1fr));
   }
@@ -605,6 +632,9 @@
   }
   .gap-2 {
     gap: calc(var(--spacing) * 2);
+  }
+  .gap-3 {
+    gap: calc(var(--spacing) * 3);
   }
   .gap-4 {
     gap: calc(var(--spacing) * 4);
@@ -1104,6 +1134,11 @@
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
   }
+  .sm\:grid-cols-3 {
+    @media (width >= 40rem) {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
   .sm\:grid-cols-4 {
     @media (width >= 40rem) {
       grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -1125,6 +1160,11 @@
       border-width: 1px;
     }
   }
+  .md\:grid-cols-4 {
+    @media (width >= 48rem) {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+  }
   .lg\:col-span-2 {
     @media (width >= 64rem) {
       grid-column: span 2 / span 2;
@@ -1133,6 +1173,16 @@
   .lg\:grid-cols-3 {
     @media (width >= 64rem) {
       grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+  .lg\:grid-cols-5 {
+    @media (width >= 64rem) {
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+    }
+  }
+  .xl\:grid-cols-5 {
+    @media (width >= 80rem) {
+      grid-template-columns: repeat(5, minmax(0, 1fr));
     }
   }
 }
