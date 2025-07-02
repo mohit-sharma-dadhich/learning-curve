@@ -163,13 +163,5 @@ export const products = [
     priceCent: 3499,
     category: "Personal Care",
     id: "19",
-  },
-  {
-    name: "Mini Bluetooth Speaker",
-    img: "./product_photos/mini-bluetooth-speaker.jpg",
-    rating: { stars: 5, review: 143 },
-    priceCent: 1890,
-    category: "Electronics",
-    id: "20",
-  },
+  }
 ];

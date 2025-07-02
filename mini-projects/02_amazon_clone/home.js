@@ -8,11 +8,11 @@ products.forEach((product) => {
   innerContent += ` 
    <div id=${product.id} 
       class=" h-full rounded shadow-md flex flex-col justify-between  items p-4 gap-2 product">
-      <div class="h-1/2 ">
+      <div class="h-1/2 self-center ">
           <img
             class="h-auto w-[162px]  mt-4 self-center"
             src="${product.img}"
-            alt="product_1"
+            alt="product_${product.id}"
           />
         </div> 
           <p class="h-1/4 font-semibold product-name">
@@ -25,7 +25,7 @@ products.forEach((product) => {
               src="./star_photos/rating-${product.rating.stars}.png"
               alt="Stars-rating"
             />
-            <p class="text-blue-800 text-lg">${product.rating.review}</p>
+            <p class="text-blue-800 self-center text-lg">${product.rating.review}</p>
           </div>
      
           <p class="font-bold text-2xl">$${(product.priceCent / 100).toFixed(
@@ -44,7 +44,7 @@ products.forEach((product) => {
           </select>
      </div>
           
-        <div class="relative h-3 overflow-visible">
+        <div class="relative mt-1.5 h-3 overflow-visible">
             <p
               class="absolute bottom-0.5  opacity-0 pointer-events-none translate-y-1 transition-all duration-300 ease-in-out text-sm text-green-600 added-msg"
               data-id="${product.id}">
