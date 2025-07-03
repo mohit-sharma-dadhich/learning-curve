@@ -1,6 +1,7 @@
-import { products } from "./product_details.js";
+import * as products from "./product_details.js";
 import { renderProducts } from "./render_products.js";
-renderProducts(products);
+renderProducts(products.allProducts);
+
 
 const menuBar = document.querySelector("#menu");
 let menuContainer = document.querySelector(".menu");

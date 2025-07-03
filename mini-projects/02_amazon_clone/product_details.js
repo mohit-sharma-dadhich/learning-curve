@@ -1,17 +1,4 @@
-// export const products = [
-//   {
-//     name: "Black and Gray Athletic Cotton Socks - 6 Pairs",
-//     img: "./photos/athletic-cotton-socks-6-pairs.jpg",
-//     rating: {
-//       stars: 4.5,
-//       review: 40,
-//     },
-//     priceCent: 1090,
-//     id: "01",
-//   }
-// ];
-
-export const products = [
+export const allProducts = [
   {
     name: "Black and Gray Athletic Cotton Socks - 6 Pairs",
     img: "./product_photos/athletic-cotton-socks-6-pairs.jpg",
@@ -163,5 +150,40 @@ export const products = [
     priceCent: 3499,
     category: "Personal Care",
     id: "19",
-  }
+  },
 ];
+
+export const clothProducts = allProducts.filter(
+  (product) => product.category.toLowerCase().replace(/\s+/g, '') === "clothing"
+);
+
+export const personalCareProducts = allProducts.filter(
+  (product) => product.category.toLowerCase().replace(/\s+/g, '') === "personalcare"
+);
+
+export const electronicProducts = allProducts.filter(
+  (product) => product.category.toLowerCase().replace(/\s+/g, '') === "electronics"
+);
+
+export const footWearProducts = allProducts.filter(
+  (product) => product.category.toLowerCase().replace(/\s+/g, '') === "footwear"
+);
+export const wearablesProducts = allProducts.filter(
+  (product) => product.category.toLowerCase().replace(/\s+/g, '') === "wearables"
+);
+
+export const homeProducts = allProducts.filter(
+  (product) => product.category.toLowerCase().replace(/\s+/g, '') === "home"
+);
+
+export const bagsProducts = allProducts.filter(
+  (product) => product.category.toLowerCase().replace(/\s+/g, '') === "bags"
+);
+
+export const stationeryProducts = allProducts.filter(
+  (product) => product.category.toLowerCase().replace(/\s+/g, '') === "stationery"
+);
+
+export const accessoriesProducts = allProducts.filter(
+  (product) => product.category.toLowerCase().replace(/\s+/g, '') === "accessories"
+);
