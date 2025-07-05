@@ -52,7 +52,7 @@ addToCartBtn.forEach((button) => {
       .innerText.trim();
     const quantity = Number(parentProduct.querySelector("select").value);
 
-    const findDetails = products.find((product) => product.id === id);
+    const findDetails = products.allProducts.find((product) => product.id === id);
     const existingItem = cart.find((item) => item.id === id);
 
     if (existingItem) {
