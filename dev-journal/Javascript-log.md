@@ -23,6 +23,22 @@
   - [for...in Loop](#-5-forin-loop)
   - [break and continue](#-6-loop-control-break-and-continue)
 - [Closures in JavaScript](#-closures-in-javascript)
+- [Modules](#-modules-importexport)
+  - [Using External Libraries](#-using-external-libraries)
+  - [ESM Versions of Libraries](#-esm-versions-of-libraries)
+- [Object-Oriented Programming (OOP) in JavaScript](#-object-oriented-programming-oop-in-javascript)
+  - [this Keyword](#-this-keyword)
+  - [Classes and Constructors](#-classes-and-constructors)
+  - [Private Fields and Methods](#-private-fields-and-methods)
+  - [Inheritance](#-inheritance)
+- [Asynchronous JavaScript](#-asynchronous-javascript-callbacks-promises-asyncawait)
+  - [Callback Hell](#-callback-hell)
+  - [Promises and Fetch API](#-promises-and-fetch-api)
+  - [.then() and .catch()](#-then-and-catch)
+  - [resolve() and reject()](#-resolve-and-reject)
+  - [Async/Await](#-asyncawait)
+  - [try...catch](#-trycatch)
+
 
 # Basics_of_JS:
 
@@ -1302,3 +1318,258 @@ Arrow functions don’t have their own `this`, but they **can close over variabl
 | Currying / partial application | Return chainable or pre-configured functions |
 
 Closures are a **core part of JS** — understanding them makes async code, React hooks, and many libraries easier to reason about.
+
+
+# 📦 Modules (Import/Export)
+
+JavaScript **modules** allow you to split code across multiple files, each with its own scope. You can **export** variables, functions, or classes from one file and **import** them into another. Modules help keep code organized and avoid polluting the global scope. When using modules, you often run JavaScript in strict mode by default and may need a bundler or `<script type="module">` to load them in browsers.
+
+- **Exporting:** Use the `export` keyword to make code available outside the file.  
+- **Importing:** Use the `import` keyword to bring in exported code from other files.  
+- **Default vs Named:** You can `export default` a single value, or use named exports (`export function foo(){}`) for multiple.
+
+```js
+  // math.js
+  export function add(a, b) {
+    return a + b;
+  }
+  export const PI = 3.14159;
+
+  // app.js
+  import { add, PI } from './math.js';
+  console.log(add(2, 3)); // 5
+  console.log(PI);       // 3.14159
+
+  // default export example
+  // utils.js
+  export default function greet(name) {
+    return `Hello, ${name}!`;
+  }
+  // main.js
+  import greet from './utils.js';
+  console.log(greet('Alice')); // Hello, Alice!
+```
+
+## 🔹 Using External Libraries
+
+You can use third-party libraries by including them in your project. There are two common ways:
+
+- **CDN / `<script>` tag:** Include a script from a CDN. This attaches the library (e.g., Lodash, jQuery) to the global scope.  
+
+```js
+  <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
+  <script>
+    console.log(_.join(['Hello', 'world'], ' ')); // Uses global `_` from lodash
+  </script>
+```
+
+- **Package Manager & Import:** Install via npm/yarn and import in your code (often using a bundler like Webpack or running in Node.js).  
+
+```js
+  import _ from 'lodash';
+  console.log(_.join(['Hello','world'], ' '));
+```
+
+## 🔹 ESM Versions of Libraries
+
+Many libraries provide an **ES Module (ESM) build** to support modern JavaScript. ESM builds allow tree-shaking (removing unused code) and direct `import` usage in browsers. For example, Lodash offers a separate `lodash-es` package with ESM modules. You can import specific functions to keep bundle sizes small:  
+
+```js
+  import { map, filter } from 'https://cdn.jsdelivr.net/npm/lodash-es@4.17.21/lodash-es.js';
+  const evens = filter([1,2,3,4,5], n => n % 2 === 0);
+  console.log(evens); // [2, 4]
+```
+
+# 🛠 Object-Oriented Programming (OOP) in JavaScript
+
+JavaScript supports OOP through **classes** (introduced in ES6) and traditional prototypes. You can define classes with constructors and methods, and use the `this` keyword to refer to object instances.
+
+## 🔹 `this` Keyword
+
+- In a class constructor or method, `this` refers to the current instance of the object.  
+- Outside of classes, `this` can refer to the global object or be `undefined` (in strict mode), depending on call context.  
+- Avoid arrow functions for methods if you rely on `this` being the instance (arrow functions capture `this` lexically).
+
+```js
+  class Person {
+    constructor(name) {
+      this.name = name; // 'this' is the new Person instance
+    }
+    greet() {
+      console.log(`Hello, I'm ${this.name}`);
+    }
+  }
+
+  const person = new Person('Alice');
+  person.greet(); // Hello, I'm Alice
+```
+
+## 🔹 Classes and Constructors
+
+- Use the `class` keyword to define an object template.  
+- The `constructor` method runs when a new instance is created.  
+- Other methods can be defined inside the class body.  
+- JavaScript classes are just syntactic sugar over prototype-based inheritance.
+
+```js
+  class Rectangle {
+    constructor(width, height) {
+      this.width = width;
+      this.height = height;
+    }
+    area() {
+      return this.width * this.height;
+    }
+  }
+
+  const rect = new Rectangle(4, 5);
+  console.log(rect.area()); // 20
+```
+
+## 🔹 Private Fields and Methods
+
+- You can create **private fields** and methods by prefixing the name with `#` (ES2022+ feature).  
+- Private members are only accessible **inside** the class body and are **not inherited**.  
+- Older patterns use closures or naming conventions (e.g. `_privateVar`) for privacy.
+
+```js
+  class BankAccount {
+    #balance = 0; // private field
+    constructor(initial) {
+      this.#balance = initial;
+    }
+    deposit(amount) {
+      this.#balance += amount;
+    }
+    getBalance() {
+      return this.#balance;
+    }
+  }
+
+  const account = new BankAccount(100);
+  account.deposit(50);
+  console.log(account.getBalance()); // 150
+  // console.log(account.#balance); // SyntaxError: Private field
+```
+
+## 🔹 Inheritance
+
+- Use `extends` to create a subclass that inherits from a parent class.  
+- The `super()` function calls the parent constructor.  
+- Subclasses inherit methods from their parent prototype.
+
+```js
+  class Animal {
+    constructor(name) {
+      this.name = name;
+    }
+    speak() {
+      console.log(`${this.name} makes a noise.`);
+    }
+  }
+
+  class Dog extends Animal {
+    constructor(name, breed) {
+      super(name); // call parent constructor
+      this.breed = breed;
+    }
+    speak() {
+      console.log(`${this.name} barks!`);
+    }
+  }
+
+  const d = new Dog('Rex', 'Labrador');
+  d.speak(); // Rex barks!
+```
+
+# ⚡ Asynchronous JavaScript: Callbacks, Promises, Async/Await
+
+JavaScript is **single-threaded**, so it uses asynchronous patterns to handle tasks like network requests or timers. Callback functions were the original way, but they can lead to **"callback hell"**. Modern code uses **Promises** and `async/await` for clearer syntax.
+
+## 🔹 Callback Hell
+
+"Callback hell" refers to deeply nested callbacks that are hard to read and maintain. Each function waits for the previous one to complete, leading to a pyramid shape.
+
+```js
+  doStep1(data, result1 => {
+    doStep2(result1, result2 => {
+      doStep3(result2, result3 => {
+        console.log('Final result:', result3);
+      });
+    });
+  });
+```
+
+## 🔹 Promises and Fetch API
+
+A **Promise** represents a value that may be available now, later, or never (if an error occurs). The Fetch API uses Promises to handle HTTP requests.
+
+```js
+  fetch('https://api.example.com/data')
+    .then(response => response.json())
+    .then(data => {
+      console.log('Data received:', data);
+    })
+    .catch(error => {
+      console.error('Error:', error);
+    });
+```
+
+## 🔹 `.then()` and `.catch()`
+
+- `.then()` handles resolved promises.  
+- `.catch()` handles errors or rejected promises.
+
+```js
+  fetch('https://api.example.com/data')
+    .then(data => console.log('Success:', data))
+    .catch(err => console.error('Fetch error:', err));
+```
+
+## 🔹 `resolve()` and `reject()`
+
+```js
+  const myPromise = new Promise((resolve, reject) => {
+    const success = true;
+    if (success) {
+      resolve('Operation succeeded');
+    } else {
+      reject('Operation failed');
+    }
+  });
+
+  myPromise
+    .then(msg => console.log(msg)) 
+    .catch(err => console.error(err));
+```
+
+## 🔹 Async/Await
+
+```js
+  async function getData() {
+    try {
+      const response = await fetch('https://api.example.com/data');
+      const data = await response.json();
+      console.log(data);
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
+  }
+
+  getData();
+```
+
+## 🔹 try...catch
+
+```js
+  async function fetchUser(userId) {
+    try {
+      const response = await fetch(`/users/${userId}`);
+      if (!response.ok) throw new Error('Network response was not ok');
+      const user = await response.json();
+      console.log(user);
+    } catch (err) {
+      console.error('Failed to fetch user:', err);
+    }
+  }
+```
