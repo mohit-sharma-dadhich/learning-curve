@@ -16,6 +16,18 @@
 
 - [Border Radius – MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/border-radius) 
 
-- [JavaScript (YouTube)](https://youtu.be/EerdGm-ehJQ?si=diQ02duF72cZocD3)
 
--[The Modern JavaScript Tutorial](https://javascript.info/)
+## JavaScript
+- [JavaScript (YouTube)](https://youtu.be/EerdGm-ehJQ?si=diQ02duF72cZocD3)
+- [JavaScript Guide – MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide) 
+- [The Modern JavaScript Tutorial](https://javascript.info/)
+- [You Don’t Know JS – GitHub Book Series](https://github.com/getify/You-Dont-Know-JS) – Advanced deep dive  
+- [ES6+ Features – MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference) 
+- [Eloquent JavaScript (Book)](https://eloquentjavascript.net/) – A deep dive into JS fundamentals and functional programming
+
+
+## Tailwind CSS
+
+- [Tailwind CSS Documentation](https://tailwindcss.com/docs)  
+- [Tailwind Cheat Sheet](https://nerdcave.com/tailwind-cheat-sheet)  
+- [Tailwind Play](https://play.tailwindcss.com/)
