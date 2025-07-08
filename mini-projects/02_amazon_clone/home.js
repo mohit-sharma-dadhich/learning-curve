@@ -108,8 +108,8 @@ function showCartValue() {
 }
 
 function search() {
-  const value = searchInput.value.trim().toLowerCase().replace(/\s+/g, "");
-  if (value === "") {
+  let searchValue = searchInput.value.trim().toLowerCase().replace(/\s+/g, "");
+  if (searchValue === "") {
     renderProducts(products.allProducts);
   } else {
     const desiredCategory = products.searchSuggestions.find((category) =>
@@ -117,10 +117,11 @@ function search() {
         .trim()
         .toLowerCase()
         .replace(/\s+/g, "")
-        .startsWith(value.slice(0, 3))
+        .startsWith(searchValue.slice(0, 3))
     );
     if (desiredCategory) {
       renderProducts(products[`${desiredCategory}Products`]);
+      searchInput.value = desiredCategory;
     } else {
       showNoMatchedProducts();
     }
