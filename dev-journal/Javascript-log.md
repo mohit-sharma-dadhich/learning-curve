@@ -38,6 +38,8 @@
   - [resolve() and reject()](#-resolve-and-reject)
   - [Async/Await](#-asyncawait)
   - [try...catch](#-trycatch)
+-  [Debouncing](#-debouncing)
+
 
 
 # Basics_of_JS:
@@ -1572,4 +1574,34 @@ A **Promise** represents a value that may be available now, later, or never (if 
       console.error('Failed to fetch user:', err);
     }
   }
+```
+
+# 🔄 Debouncing
+
+**Definition**  
+Debouncing is a technique to limit how often a function executes. It ensures that a function runs **only after a delay** has passed since the **last time the event was triggered**. Useful for performance optimization in scenarios like typing, resizing, or scrolling.
+
+**Use Case**  
+When implementing features like live search, we can use debouncing to avoid calling the API on every keystroke.
+
+**Example**
+
+```js
+function debounce(func, delay) {
+  let timeoutId;
+  return function (...args) {
+    clearTimeout(timeoutId);
+    timeoutId = setTimeout(() => {
+      func.apply(this, args);
+    }, delay);
+  };
+}
+
+// Usage with input event
+const handleSearch = debounce(() => {
+  console.log('Searching...');
+}, 300);
+
+const searchInput = document.querySelector('#search-box');
+searchInput.addEventListener('input', handleSearch);
 ```
