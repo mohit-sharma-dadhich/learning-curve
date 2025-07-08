@@ -153,19 +153,19 @@ export const allProducts = [
   },
 ];
 
-export const clothProducts = allProducts.filter(
+export const clothingProducts = allProducts.filter(
   (product) => product.category.toLowerCase().replace(/\s+/g, '') === "clothing"
 );
 
-export const personalCareProducts = allProducts.filter(
+export const personalcareProducts = allProducts.filter(
   (product) => product.category.toLowerCase().replace(/\s+/g, '') === "personalcare"
 );
 
-export const electronicProducts = allProducts.filter(
+export const electronicsProducts = allProducts.filter(
   (product) => product.category.toLowerCase().replace(/\s+/g, '') === "electronics"
 );
 
-export const footWearProducts = allProducts.filter(
+export const footwearProducts = allProducts.filter(
   (product) => product.category.toLowerCase().replace(/\s+/g, '') === "footwear"
 );
 export const wearablesProducts = allProducts.filter(
@@ -187,3 +187,16 @@ export const stationeryProducts = allProducts.filter(
 export const accessoriesProducts = allProducts.filter(
   (product) => product.category.toLowerCase().replace(/\s+/g, '') === "accessories"
 );
+
+export const searchSuggestions = [
+  "all",
+  "clothing",
+  "personalcare",
+  "electronics",
+  "footwear",
+  "wearables",
+  "home",
+  "bags",
+  "stationery",
+  "accessories"
+];

@@ -24,12 +24,14 @@
       <section class="flex col-span-2">
         <input
           type="text"
+          id="search-input"
           placeholder="Search a category...."
           class="min-[360px]:inline-block sm:border border-gray-300 text-black font-medium focus:outline-none rounded-l-lg px-1 w-full h-[35px] bg-white"
         />
         <img
           class="max-[360px]:hidden min-[360px]:cursor-pointer bg-amber-300 h-[35px] rounded-r-lg"
           src="./photos/search-icon.png"
+          id="search-button"
           alt="search-icon"
         />
         <img
@@ -76,7 +78,11 @@
       <section
         id="product_container"
         class=" grid  grid-cols-1  p-4  min-[450px]:grid-cols-2  sm:grid-cols-4 gap-2 lg:grid-cols-6"
-      ></section>
+      >
+
+    </section>
+    
+<section id="no_result_message"></section>
     </main>
     <script src="home.js" type="module"></script>
   </body>

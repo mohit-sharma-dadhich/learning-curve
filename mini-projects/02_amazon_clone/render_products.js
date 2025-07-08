@@ -1,4 +1,6 @@
 export function renderProducts(products) {
+  document.querySelector("#no_result_message").innerHTML = "";
+
   const productContainer = document.querySelector("#product_container");
 
   let innerContent = "";
@@ -163,4 +165,23 @@ export function renderCart() {
     const options = { weekday: "long", month: "long", day: "numeric" };
     return today.toLocaleDateString("en-US", options);
   }
+}
+
+export function showNoMatchedProducts() {
+  document.querySelector("#product_container").innerHTML = "";
+  const messageSection = document.querySelector("#no_result_message");
+
+  messageSection.innerHTML = `
+    <div class="w-full flex flex-col items-center justify-center py-10 text-gray-600">
+      <div class="text-4xl mb-3">😕</div>
+      <p class="text-xl font-semibold">No products matched your search.</p>
+      <p class="text-sm text-gray-400 mt-2">Try searching something else.</p>
+      <button
+        class="mt-5 px-5 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition"
+        onclick="renderProducts(products.allProducts)"
+      >
+        Back to All Products
+      </button>
+    </div>
+  `;
 }

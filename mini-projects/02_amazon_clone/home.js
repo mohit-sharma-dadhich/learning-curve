@@ -1,7 +1,16 @@
 import * as products from "./product_details.js";
-import { renderProducts } from "./render_products.js";
+import { renderProducts, showNoMatchedProducts } from "./render_products.js";
 renderProducts(products.allProducts);
 
+const searchInput = document.querySelector("#search-input");
+const searchIcon = document.querySelector("#search-button");
+searchInput.addEventListener("keydown", (event) => {
+  if (event.key === "Enter") {
+    search();
+  }
+});
+
+searchIcon.addEventListener("click", search);
 
 const menuBar = document.querySelector("#menu");
 let menuContainer = document.querySelector(".menu");
@@ -52,7 +61,9 @@ addToCartBtn.forEach((button) => {
       .innerText.trim();
     const quantity = Number(parentProduct.querySelector("select").value);
 
-    const findDetails = products.allProducts.find((product) => product.id === id);
+    const findDetails = products.allProducts.find(
+      (product) => product.id === id
+    );
     const existingItem = cart.find((item) => item.id === id);
 
     if (existingItem) {
@@ -96,3 +107,22 @@ function showCartValue() {
   menuQuantityCount.innerHTML = totalQuantity;
 }
 
+function search() {
+  const value = searchInput.value.trim().toLowerCase().replace(/\s+/g, "");
+  if (value === "") {
+    renderProducts(products.allProducts);
+  } else {
+    const desiredCategory = products.searchSuggestions.find((category) =>
+      category
+        .trim()
+        .toLowerCase()
+        .replace(/\s+/g, "")
+        .startsWith(value.slice(0, 3))
+    );
+    if (desiredCategory) {
+      renderProducts(products[`${desiredCategory}Products`]);
+    } else {
+      showNoMatchedProducts();
+    }
+  }
+}
