@@ -109,3 +109,17 @@
 - Cookie Parser & Session Management
 - WebSockets (intro)
 - Scheduled Jobs (using `node-cron`)
+
+## 9. Deployment & Hosting
+
+- Preparing your app for production (env, security, logging)
+- Using `dotenv` for secrets (Mongo URI, JWT secret)
+- Deploying on:
+  - Render (free Node.js hosting)
+  - Railway (alternative)
+  - Vercel (for frontend + backend combo)
+- Setting up MongoDB Atlas (cloud DB)
+- Connecting frontend with deployed backend
+- Handling CORS in production
+- GitHub integration for CI/CD basics
+- Common deployment issues & debugging
