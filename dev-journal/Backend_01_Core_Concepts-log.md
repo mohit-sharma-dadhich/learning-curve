@@ -1,6 +1,18 @@
 # Backend Core Concepts Log
 
-## ✅ 1. What is Backend?
+## 📑 Table of Contents
+
+- [1. What is Backend?](#1-what-is-backend)
+- [2. Difference Between Server & Client](#2-difference-between-server--client)
+- [3. HTTP & HTTPS Protocols](#3-http--https-protocols)
+- [4. Request-Response Lifecycle](#4-request-response-lifecycle)
+- [5. REST & RESTful APIs](#5-rest--restful-apis)
+- [6. CRUD Operations (Create, Read, Update, Delete)](#6-crud-operations-create-read-update-delete)
+- [7. HTTP Status Codes](#7-http-status-codes)
+- [8. Tools: Postman & Thunder Client](#8-tools-postman--thunder-client)
+
+
+## 1. What is Backend?
 
 The **backend** is the **server-side** of a web application.
 
@@ -16,7 +28,7 @@ It is not directly visible to the user, but it powers everything behind the scen
 
 ---
 
-## ✅ 2. Difference Between Server & Client
+## 2. Difference Between Server & Client
 
 | Term      | Description                                                      |
 |-----------|------------------------------------------------------------------|
@@ -42,7 +54,7 @@ It is not directly visible to the user, but it powers everything behind the scen
 
 ---
 
-## ✅ 3. HTTP & HTTPS Protocols
+## 3. HTTP & HTTPS Protocols
 
 ### 🌐 HTTP (HyperText Transfer Protocol)
 - Protocol for communication between **client and server**
@@ -68,7 +80,7 @@ It is not directly visible to the user, but it powers everything behind the scen
 
 ---
 
-## ✅ 4. Request-Response Lifecycle
+## 4. Request-Response Lifecycle
 
 The request-response lifecycle is how a **client (browser or app)** communicates with a **server** over the web.
 
@@ -121,7 +133,7 @@ The request-response lifecycle is how a **client (browser or app)** communicates
 
 ---
 
-## ✅ 5. REST & RESTful APIs
+## 5. REST & RESTful APIs
 
 ### 🔗 What is REST?
 
@@ -163,7 +175,7 @@ When an API follows REST rules, we call it a **RESTful API**.
 
 ---
 
-## ✅ 6. CRUD Operations (Create, Read, Update, Delete)
+## 6. CRUD Operations (Create, Read, Update, Delete)
 
 CRUD defines the 4 basic operations to manage data in a backend system.
 
@@ -182,7 +194,7 @@ CRUD defines the 4 basic operations to manage data in a backend system.
 - CRUD operations are the core of any RESTful API
 
 ---
-## ✅ 7. HTTP Status Codes
+## 7. HTTP Status Codes
 
 HTTP status codes are 3-digit numbers returned by the server to tell the client the result of a request.
 
@@ -198,7 +210,7 @@ HTTP status codes are 3-digit numbers returned by the server to tell the client 
 | 5xx     | Server Error   | Issue with server while handling request |
 
 
-### ✅ Common Status Codes:
+###  Common Status Codes:
 
 | Code | Meaning               | Example Use Case                         |
 |------|------------------------|------------------------------------------|
@@ -213,7 +225,7 @@ HTTP status codes are 3-digit numbers returned by the server to tell the client 
 | `503` | Service Unavailable   | Server is overloaded or under maintenance|
 
 ---
-## ✅ 8. Tools: Postman & Thunder Client
+## 8. Tools: Postman & Thunder Client
 
 API testing tools help developers send HTTP requests directly to the backend and inspect responses without needing a frontend UI.
 
