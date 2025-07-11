@@ -207,7 +207,7 @@ console.log(math.sub(4, 2)); // Output: 2
 - Always use `./` when importing your own modules (same folder)
 - Don't add `.js` extension — Node resolves it automatically
 
-## How to Use `"type": "module"` in Node.js
+## 5. How to Use `"type": "module"` in Node.js
 
 ### 📘 Why use it?
 
@@ -277,7 +277,7 @@ export function add(a, b) {
 
 ---
 
-## 5. Built-in Modules in Node.js
+## 6. Built-in Modules in Node.js
 
 Node.js comes with several **core (built-in) modules** — no need to install via npm.
 
@@ -356,5 +356,386 @@ emitter.on('greet', (name) => {
 
 emitter.emit('greet', 'Mohit');
 ```
+
+---
+
+## 7. File System Operations (`fs`)
+
+The `fs` module in Node.js provides an API to interact with the file system. It supports both **asynchronous (non-blocking)** and **synchronous (blocking)** methods.
+
+
+
+#### 📥 Importing the Module
+
+```js
+const fs = require('fs');
+```
+
+
+
+#### 📖 Reading Files
+
+**Asynchronous**
+```js
+fs.readFile('example.txt', 'utf8', (err, data) => {
+  if (err) return console.error(err);
+  console.log(data);
+});
+```
+
+**Synchronous**
+```js
+const data = fs.readFileSync('example.txt', 'utf8');
+console.log(data);
+```
+
+
+#### 📝 Writing Files
+
+**Asynchronous**
+```js
+fs.writeFile('output.txt', 'Hello Node.js!', (err) => {
+  if (err) throw err;
+  console.log('File written successfully');
+});
+```
+
+**Synchronous**
+```js
+fs.writeFileSync('output.txt', 'Hello Node.js!');
+```
+
+
+
+#### ➕ Appending to Files
+
+**Asynchronous**
+```js
+fs.appendFile('output.txt', '\nAppended text.', (err) => {
+  if (err) throw err;
+  console.log('Data appended');
+});
+```
+
+**Synchronous**
+```js
+fs.appendFileSync('output.txt', '\nAppended text.');
+```
+
+
+
+#### ❌ Deleting Files
+
+**Asynchronous**
+```js
+fs.unlink('output.txt', (err) => {
+  if (err) throw err;
+  console.log('File deleted');
+});
+```
+
+**Synchronous**
+```js
+fs.unlinkSync('output.txt');
+```
+
+
+
+#### ✅ Check if File Exists
+
+```js
+if (fs.existsSync('example.txt')) {
+  console.log('File exists!');
+} else {
+  console.log('File not found');
+}
+```
+
+
+#### 📌 Summary Table
+
+| Task             | Async Method       | Sync Method          |
+|------------------|--------------------|----------------------|
+| Read file        | `fs.readFile()`    | `fs.readFileSync()`  |
+| Write file       | `fs.writeFile()`   | `fs.writeFileSync()` |
+| Append to file   | `fs.appendFile()`  | `fs.appendFileSync()`|
+| Delete file      | `fs.unlink()`      | `fs.unlinkSync()`    |
+| Check if exists  | —                  | `fs.existsSync()`    |
+
+---
+
+## 8. npm (Node Package Manager)
+
+`npm` is the default package manager for Node.js. It is used to install, manage, and update third-party libraries (packages) and also manage project metadata via `package.json`.
+
+### 📦 Initialize a Node.js Project
+
+Creates a `package.json` file with project metadata.
+
+```bash
+npm init
+npm init -y
+```
+
+
+
+### 📥 Install Packages
+
+**Install locally (default):**
+```bash
+npm install package-name
+```
+
+**Install globally (for CLI tools):**
+```bash
+npm install -g package-name
+```
+
+### 🗑️ Uninstall a Package
+
+```bash
+npm uninstall package-name
+```
+
+### 📃 View Installed Packages
+
+**Local:**
+```bash
+npm list
+```
+
+**Global:**
+```bash
+npm list -g
+```
+
+### 📥 Install from `package.json`
+
+Used when cloning/downloading a project:
+```bash
+npm install
+```
+
+### 📌 Summary Table
+
+| Task                      | Command                      |
+|---------------------------|------------------------------|
+| Init project              | `npm init` / `npm init -y`   |
+| Install package           | `npm install <pkg>`          |
+| Uninstall package         | `npm uninstall <pkg>`        |
+| List local packages       | `npm list`                   |
+| List global packages      | `npm list -g`                |
+| Install from package.json | `npm install`                |
+
+---
+## 9. package.json & package-lock.json
+
+These two files are essential for managing dependencies in a Node.js project.
+
+
+### 📄 `package.json`
+
+This file holds **metadata** about your project and the list of **dependencies**.
+
+#### 📌 Created using:
+```bash
+npm init
+```
+
+#### 📘 Example:
+```json
+{
+  "name": "my-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
+```
+
+
+### 🔑 Key Fields:
+
+| Field         | Purpose                             |
+|---------------|--------------------------------------|
+| `name`        | Project name                         |
+| `version`     | Project version                      |
+| `scripts`     | Command shortcuts (`npm run`)        |
+| `dependencies`| Required packages for production     |
+| `devDependencies` | For development only             |
+
+### 📄 `package-lock.json`
+
+This file **automatically generates** when you install packages using `npm`.
+
+#### 🧠 Purpose:
+- Locks the exact version of every installed package (and sub-dependency)
+- Ensures **consistent installs** across different systems
+
+📝 **Note:** You should always commit both `package.json` and `package-lock.json` to version control (like Git).
+
+
+
+### ✅ Summary:
+
+| File               | Description                                         |
+|--------------------|-----------------------------------------------------|
+| `package.json`     | Declares project info and dependencies              |
+| `package-lock.json`| Locks exact versions of all installed packages      |
+
+---
+
+## 10. The `scripts` Field in `package.json`
+
+The `scripts` field allows you to define **custom commands** that you can run using:
+
+```bash
+npm run <script-name>
+```
+
+
+### 🛠️ Example `package.json` Scripts
+
+```json
+{
+  "name": "my-app",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "test": "echo 'No tests defined'"
+  }
+}
+```
+
+
+### ▶️ How to Run Scripts
+
+```bash
+npm run start
+npm run dev
+npm run test
+```
+
+
+
+### 🎯 Special Case: `start`
+
+If you define a `start` script, you can run it with just:
+
+```bash
+npm start
+```
+
+(no need to write `npm run start`)
+
+
+### ✅ Summary
+
+| Script Field | Description                                  |
+|--------------|----------------------------------------------|
+| `start`      | Entry point command (`npm start`)            |
+| `dev`        | Common for development (e.g., with nodemon)  |
+| `test`       | Placeholder for test commands                |
+| Any custom   | Can define any custom label + shell command  |
+
+---
+
+## 11. Sync vs Async in Node.js
+
+Node.js supports both **synchronous (blocking)** and **asynchronous (non-blocking)** operations.
+
+### 🔄 Synchronous (Sync)
+
+- **Blocks** the execution until the task completes
+- Slower in I/O-heavy tasks
+- Easier to write and debug
+
+#### 📘 Example:
+```js
+const fs = require('fs');
+
+const data = fs.readFileSync('file.txt', 'utf8');
+console.log(data); // waits until file is read
+```
+
+
+### ⚡ Asynchronous (Async)
+
+- **Does not block** the execution
+- Uses callbacks, promises, or async/await
+- More efficient for I/O operations
+
+#### 📘 Example:
+```js
+const fs = require('fs');
+
+fs.readFile('file.txt', 'utf8', (err, data) => {
+  if (err) throw err;
+  console.log(data); // executed after file is read
+});
+```
+
+
+
+### ✅ Summary
+
+| Type    | Blocks Execution | Uses         | Performance   |
+|---------|------------------|--------------|---------------|
+| Sync    | Yes              | Simpler code | Slower        |
+| Async   | No               | Callback/Promise/Async-Await | Faster for I/O |
+
+---
+## 12. Event Loop (Basic Understanding)
+
+The **Event Loop** is the core of Node.js’s non-blocking architecture. It allows Node.js to handle many operations asynchronously using a single thread.
+
+
+### 🧠 How It Works:
+
+1. Node.js starts executing code from the top of the file.
+2. When it encounters **async operations** (like file read, setTimeout, HTTP requests), it sends them to the system APIs.
+3. Meanwhile, Node.js continues executing other code.
+4. Once the async operation completes, the **callback** is pushed to the **Event Queue**.
+5. The **Event Loop** picks callbacks from the queue and pushes them back into the call stack for execution.
+
+
+
+### 📘 Example:
+
+```js
+console.log("Start");
+
+setTimeout(() => {
+  console.log("Inside setTimeout");
+}, 0);
+
+console.log("End");
+```
+
+**Output:**
+```bash
+Start
+End
+Inside setTimeout
+```
+
+Even though the timeout is 0ms, it's **asynchronous** — so "End" is printed first.
+
+
+
+### ✅ Summary
+
+| Concept         | Description                                              |
+|------------------|----------------------------------------------------------|
+| Call Stack       | Where JS code runs (one line at a time)                 |
+| Event Loop       | Handles async callbacks from queue                      |
+| Event Queue      | Holds async task callbacks ready to be executed         |
+| Non-blocking     | Continues execution without waiting for async results   |
 
 ---
