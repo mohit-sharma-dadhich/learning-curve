@@ -1,5 +1,21 @@
 # Node.js Fundamentals
 
+## 📚 Table of Contents
+
+- [1. What is Node.js?](#1-what-is-nodejs)
+- [2. Node.js Architecture (Single-threaded, Non-blocking I/O)](#2-nodejs-architecture-single-threaded-non-blocking-io)
+- [3. Node REPL (Read–Eval–Print Loop)](#3-node-repl-readevalprint-loop)
+- [4. Modules in Node.js](#4-modules-in-nodejs)
+- [5. How to Use "type": "module" in Node.js](#5-how-to-use-type-module-in-nodejs)
+- [6. Built-in Modules in Node.js](#6-built-in-modules-in-nodejs)
+- [7. File System Operations (`fs`)](#7-file-system-operations-fs)
+- [8. npm (Node Package Manager)](#8-npm-node-package-manager)
+- [9. package.json & package-lock.json](#9-packagejson--package-lockjson)
+- [10. The scripts Field in package.json](#10-the-scripts-field-in-packagejson)
+- [11. Sync vs Async in Node.js](#11-sync-vs-async-in-nodejs)
+- [12. Event Loop (Basic Understanding)](#12-event-loop-basic-understanding)
+
+
 ##  1. What is Node.js?
 
 **Node.js** is a runtime environment that allows JavaScript to run **outside the browser**, usually on a server.
